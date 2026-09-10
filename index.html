@@ -1,0 +1,4898 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    PROPERTY DEALERS — Sri Lanka Vehicle Marketplace
+</title>
+
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<script>
+
+(function(){
+
+    const saved =
+        localStorage.getItem(
+            "pd_home_theme"
+        )
+        ||
+        localStorage.getItem(
+            "pd_theme"
+        )
+        ||
+        "dark";
+
+
+    if(
+        saved === "light"
+    ){
+
+        document.documentElement
+            .classList
+            .add("light");
+
+    }
+
+})();
+
+</script>
+
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+
+    --bg:#05060a;
+    --bg2:#0a0d17;
+
+    --surface:rgba(15,19,31,.75);
+    --surface-solid:#0d1220;
+    --surface2:rgba(255,255,255,.035);
+
+    --text:#f8fafc;
+    --muted:#8f99aa;
+
+    --border:rgba(255,255,255,.08);
+
+    --primary:#7c5cff;
+    --primary2:#9f8cff;
+
+    --green:#32d583;
+    --red:#ff5c68;
+    --blue:#4bb7ff;
+    --orange:#ffb84d;
+
+    --shadow:
+        0 30px 100px rgba(0,0,0,.42);
+
+}
+
+
+html.light{
+
+    --bg:#f4f6fb;
+    --bg2:#ebeff7;
+
+    --surface:rgba(255,255,255,.80);
+    --surface-solid:#ffffff;
+    --surface2:rgba(16,24,40,.035);
+
+    --text:#111827;
+    --muted:#667085;
+
+    --border:rgba(16,24,40,.09);
+
+    --shadow:
+        0 25px 80px rgba(15,23,42,.09);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    color:var(--text);
+
+    background:
+
+        radial-gradient(
+            circle at 8% 0%,
+            rgba(124,92,255,.16),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 92% 8%,
+            rgba(0,200,255,.08),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--bg),
+            var(--bg2)
+        );
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+
+}
+
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:420px;
+    height:420px;
+
+    left:-180px;
+    bottom:-180px;
+
+    border-radius:50%;
+
+    background:
+        rgba(124,92,255,.12);
+
+    filter:blur(110px);
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:340px;
+    height:340px;
+
+    right:-150px;
+    top:280px;
+
+    border-radius:50%;
+
+    background:
+        rgba(0,205,255,.06);
+
+    filter:blur(100px);
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+
+button,
+input,
+select{
+
+    font:inherit;
+
+}
+
+
+button{
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    width:min(
+        1220px,
+        92%
+    );
+
+    min-height:68px;
+
+    margin:
+        18px auto;
+
+    padding:
+        0 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:18px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(24px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.05);
+
+    position:sticky;
+
+    top:12px;
+
+    z-index:1000;
+
+}
+
+
+.logo{
+
+    font-size:19px;
+
+    font-weight:800;
+
+    letter-spacing:-.8px;
+
+    white-space:nowrap;
+
+}
+
+
+.logo span{
+
+    color:var(--primary);
+
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+
+.nav-links a{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:var(--text);
+
+}
+
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.theme-btn{
+
+    width:40px;
+
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:
+        var(--surface-solid);
+
+    color:
+        var(--text);
+
+    font-size:15px;
+
+}
+
+
+.sell-btn{
+
+    height:40px;
+
+    padding:
+        0 15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary2)
+        );
+
+    color:#fff !important;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    box-shadow:
+        0 10px 26px
+        rgba(124,92,255,.20);
+
+    transition:.2s;
+
+}
+
+
+.sell-btn:hover{
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.menu-btn{
+
+    display:none;
+
+    width:40px;
+
+    height:40px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:
+        var(--surface-solid);
+
+    color:
+        var(--text);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    width:min(
+        1220px,
+        92%
+    );
+
+    margin:
+        75px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+        1.08fr
+        .92fr;
+
+    gap:35px;
+
+    align-items:stretch;
+
+}
+
+
+.hero-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+
+.hero-badge{
+
+    width:max-content;
+
+    max-width:100%;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        8px 11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:100px;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--muted);
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:.8px;
+
+    text-transform:uppercase;
+
+}
+
+
+.hero-dot{
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:
+        var(--green);
+
+    box-shadow:
+        0 0 14px
+        rgba(50,213,131,.75);
+
+}
+
+
+.hero h1{
+
+    margin-top:22px;
+
+    max-width:740px;
+
+    font-size:
+        clamp(
+            50px,
+            6.2vw,
+            82px
+        );
+
+    line-height:.94;
+
+    letter-spacing:-4.7px;
+
+    font-weight:800;
+
+}
+
+
+.hero h1 .purple{
+
+    color:
+        var(--primary);
+
+}
+
+
+.hero h1 .line{
+
+    display:block;
+
+}
+
+
+.hero-text{
+
+    margin-top:22px;
+
+    max-width:610px;
+
+    color:
+        var(--muted);
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+
+.search-card{
+
+    margin-top:30px;
+
+    padding:14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:22px;
+
+    background:
+        var(--surface);
+
+    backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.search-card-head{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+}
+
+
+.search-title{
+
+    font-size:12px;
+
+    font-weight:800;
+
+}
+
+
+.search-subtitle{
+
+    margin-top:3px;
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+}
+
+
+.search-link{
+
+    color:
+        var(--primary);
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+.search-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:8px;
+
+}
+
+
+.search-field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+
+.search-field label{
+
+    color:
+        var(--muted);
+
+    font-size:7px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    text-transform:uppercase;
+
+}
+
+
+.search-field input,
+.search-field select{
+
+    width:100%;
+
+    height:44px;
+
+    padding:
+        0 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:
+        var(--surface-solid);
+
+    color:
+        var(--text);
+
+    font-size:9px;
+
+}
+
+
+.search-field input::placeholder{
+
+    color:
+        var(--muted);
+
+}
+
+
+.search-field input:focus,
+.search-field select:focus{
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(124,92,255,.08);
+
+}
+
+
+.search-field select{
+
+    color-scheme:dark;
+
+}
+
+
+html.light .search-field select{
+
+    color-scheme:light;
+
+}
+
+
+.search-submit{
+
+    grid-column:
+        1 / -1;
+
+    height:46px;
+
+    margin-top:2px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary2)
+        );
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 12px 25px
+        rgba(124,92,255,.20);
+
+    transition:.2s;
+
+}
+
+
+.search-submit:hover{
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   HERO FEATURE PANEL
+========================================================= */
+
+.hero-panel{
+
+    min-height:565px;
+
+    padding:23px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:32px;
+
+    background:
+
+        radial-gradient(
+            circle at 70% 0%,
+            rgba(124,92,255,.18),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(0,200,255,.07),
+            transparent 30%
+        ),
+
+        var(--surface);
+
+    backdrop-filter:
+        blur(24px);
+
+    box-shadow:
+        var(--shadow);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.panel-grid{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        38px 38px;
+
+    opacity:.45;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+
+}
+
+
+.panel-top{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+
+.panel-label{
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+    font-weight:700;
+
+    letter-spacing:1.1px;
+
+    text-transform:uppercase;
+
+}
+
+
+.live-pill{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:
+        7px 9px;
+
+    border-radius:100px;
+
+    background:
+        rgba(50,213,131,.08);
+
+    color:
+        var(--green);
+
+    font-size:7px;
+
+    font-weight:800;
+
+}
+
+
+.live-pill i{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:
+        var(--green);
+
+}
+
+
+.panel-content{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:30px;
+
+}
+
+
+.panel-kicker{
+
+    color:
+        var(--muted);
+
+    font-size:9px;
+
+}
+
+
+.panel-content h2{
+
+    max-width:430px;
+
+    margin-top:8px;
+
+    font-size:32px;
+
+    line-height:1.06;
+
+    letter-spacing:-1.6px;
+
+}
+
+
+.panel-description{
+
+    max-width:430px;
+
+    margin-top:11px;
+
+    color:
+        var(--muted);
+
+    font-size:10px;
+
+    line-height:1.75;
+
+}
+
+
+/* =========================================================
+   INSIGHT CARDS
+========================================================= */
+
+.insight-grid{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:10px;
+
+}
+
+
+.insight-card{
+
+    padding:15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:15px;
+
+    background:
+        var(--surface2);
+
+}
+
+
+.insight-card.wide{
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.insight-card small{
+
+    display:block;
+
+    color:
+        var(--muted);
+
+    font-size:7px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    text-transform:uppercase;
+
+}
+
+
+.insight-card strong{
+
+    display:block;
+
+    margin-top:7px;
+
+    font-size:23px;
+
+    letter-spacing:-.8px;
+
+}
+
+
+.insight-card span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+}
+
+
+/* =========================================================
+   PANEL BUTTONS
+========================================================= */
+
+.panel-buttons{
+
+    position:absolute;
+
+    left:23px;
+
+    right:23px;
+
+    bottom:23px;
+
+    z-index:3;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:8px;
+
+}
+
+
+.panel-button{
+
+    min-height:43px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    transition:.2s;
+
+}
+
+
+.panel-button:hover{
+
+    border-color:
+        var(--primary);
+
+    color:
+        var(--primary);
+
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.trust-strip{
+
+    width:min(
+        1220px,
+        92%
+    );
+
+    margin:
+        35px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:
+        var(--surface);
+
+    overflow:hidden;
+
+}
+
+
+.trust-item{
+
+    padding:
+        20px;
+
+    text-align:center;
+
+    border-right:
+        1px solid var(--border);
+
+}
+
+
+.trust-item:last-child{
+
+    border-right:0;
+
+}
+
+
+.trust-item strong{
+
+    display:block;
+
+    font-size:22px;
+
+    letter-spacing:-.8px;
+
+}
+
+
+.trust-item span{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:
+        var(--muted);
+
+    font-size:9px;
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+
+    width:min(
+        1220px,
+        92%
+    );
+
+    margin:
+        105px auto 0;
+
+}
+
+
+.section-top{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+}
+
+
+.section-kicker{
+
+    color:
+        var(--primary);
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+
+}
+
+
+.section h2{
+
+    margin-top:7px;
+
+    font-size:35px;
+
+    letter-spacing:-1.9px;
+
+}
+
+
+.section-desc{
+
+    margin-top:8px;
+
+    color:
+        var(--muted);
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   FEATURED VEHICLES
+========================================================= */
+
+.featured-grid{
+
+    margin-top:22px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap:15px;
+
+}
+
+
+.vehicle-card{
+
+    overflow:hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:22px;
+
+    background:
+        var(--surface);
+
+    transition:.25s;
+
+}
+
+
+.vehicle-card:hover{
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(124,92,255,.28);
+
+    box-shadow:
+        0 22px 55px
+        rgba(124,92,255,.08);
+
+}
+
+
+.vehicle-image{
+
+    height:190px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(124,92,255,.10),
+            transparent 55%
+        ),
+
+        var(--surface-solid);
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.vehicle-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+.vehicle-fallback{
+
+    font-size:78px;
+
+}
+
+
+.vehicle-body{
+
+    padding:18px;
+
+}
+
+
+.vehicle-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+
+.vehicle-top h3{
+
+    font-size:13px;
+
+    font-weight:800;
+
+}
+
+
+.vehicle-top span{
+
+    padding:
+        6px 7px;
+
+    border-radius:8px;
+
+    background:
+        rgba(50,213,131,.08);
+
+    color:
+        var(--green);
+
+    font-size:7px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+}
+
+
+.vehicle-price{
+
+    margin-top:8px;
+
+    font-size:18px;
+
+    font-weight:800;
+
+}
+
+
+.vehicle-meta{
+
+    margin-top:11px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+}
+
+
+.vehicle-meta span{
+
+    padding:
+        5px 7px;
+
+    border-radius:7px;
+
+    background:
+        var(--surface2);
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+}
+
+
+.vehicle-view{
+
+    margin-top:14px;
+
+    width:100%;
+
+    height:39px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    color:
+        var(--text);
+
+    font-size:9px;
+
+    font-weight:700;
+
+}
+
+
+.vehicle-view:hover{
+
+    border-color:
+        var(--primary);
+
+    color:
+        var(--primary);
+
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.category-grid{
+
+    margin-top:22px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            6,
+            1fr
+        );
+
+    gap:10px;
+
+}
+
+
+.category-card{
+
+    min-height:86px;
+
+    padding:14px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:15px;
+
+    background:
+        var(--surface);
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.category-card:hover{
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--primary);
+
+    background:
+        var(--purple-light);
+
+}
+
+
+.category-icon{
+
+    font-size:17px;
+
+}
+
+
+.category-title{
+
+    margin-top:6px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+}
+
+
+.category-text{
+
+    margin-top:3px;
+
+    color:
+        var(--muted);
+
+    font-size:7px;
+
+}
+
+
+/* =========================================================
+   WHY
+========================================================= */
+
+.why-grid{
+
+    margin-top:24px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:15px;
+
+}
+
+
+.why-card{
+
+    padding:24px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    background:
+        var(--surface);
+
+    transition:.25s;
+
+}
+
+
+.why-card:hover{
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+.why-icon{
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+        rgba(124,92,255,.10);
+
+    color:
+        var(--primary);
+
+    font-size:18px;
+
+}
+
+
+.why-card h3{
+
+    margin-top:17px;
+
+    font-size:15px;
+
+}
+
+
+.why-card p{
+
+    margin-top:8px;
+
+    color:
+        var(--muted);
+
+    font-size:10px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+
+    width:min(
+        1220px,
+        92%
+    );
+
+    margin:
+        105px auto 0;
+
+    padding:
+        70px 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:30px;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(124,92,255,.16),
+            transparent 58%
+        ),
+
+        var(--surface);
+
+}
+
+
+.cta-kicker{
+
+    color:
+        var(--primary);
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+
+}
+
+
+.cta h2{
+
+    margin-top:10px;
+
+    font-size:39px;
+
+    letter-spacing:-2.2px;
+
+}
+
+
+.cta p{
+
+    max-width:540px;
+
+    margin:
+        12px auto 25px;
+
+    color:
+        var(--muted);
+
+    font-size:11px;
+
+    line-height:1.7;
+
+}
+
+
+.cta-btn{
+
+    display:inline-flex;
+
+    min-height:46px;
+
+    padding:
+        0 20px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary2)
+        );
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    width:min(
+        1220px,
+        92%
+    );
+
+    margin:
+        35px auto 22px;
+
+    padding-top:22px;
+
+    border-top:
+        1px solid var(--border);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:
+        var(--muted);
+
+    font-size:9px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1150px){
+
+    .search-grid{
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+    }
+
+
+    .category-grid{
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+    }
+
+}
+
+
+@media(max-width:1000px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+
+    .menu-btn{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+
+    .hero{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .hero-panel{
+
+        min-height:500px;
+
+    }
+
+
+    .trust-strip{
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+    }
+
+
+    .trust-item:nth-child(2){
+
+        border-right:0;
+
+    }
+
+
+    .trust-item:nth-child(3),
+    .trust-item:nth-child(4){
+
+        border-top:
+            1px solid var(--border);
+
+    }
+
+
+    .featured-grid{
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+    }
+
+
+    .why-grid{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .hero{
+
+        margin-top:
+            55px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:47px;
+
+        letter-spacing:-3px;
+
+    }
+
+
+    .search-grid{
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+    }
+
+
+    .search-submit{
+
+        grid-column:
+            1 / -1;
+
+    }
+
+
+    .featured-grid{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .category-grid{
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+    }
+
+
+    .section{
+
+        margin-top:
+            80px;
+
+    }
+
+
+    .section h2{
+
+        font-size:29px;
+
+    }
+
+
+    .section-top{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+    .cta{
+
+        margin-top:
+            80px;
+
+    }
+
+
+    .cta h2{
+
+        font-size:30px;
+
+    }
+
+}
+
+
+@media(max-width:520px){
+
+    .navbar{
+
+        min-height:60px;
+
+    }
+
+
+    .sell-btn{
+
+        display:none;
+
+    }
+
+
+    .search-grid{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .search-submit{
+
+        grid-column:auto;
+
+    }
+
+
+    .trust-strip{
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+    }
+
+
+    .trust-item{
+
+        padding:
+            18px 10px;
+
+    }
+
+
+    .trust-item strong{
+
+        font-size:19px;
+
+    }
+
+
+    .insight-grid{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .insight-card.wide{
+
+        grid-column:auto;
+
+    }
+
+
+    .panel-buttons{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    footer{
+
+        flex-direction:column;
+
+        gap:9px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+
+        PROPERTY<span>DEALERS</span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+
+        <a
+            href="index.html"
+            class="active"
+        >
+            Home
+        </a>
+
+
+        <a
+            href="search.html"
+        >
+            Vehicles
+        </a>
+
+
+        <a
+            href="compare.html"
+        >
+            Compare
+        </a>
+
+
+        <a
+            href="dealer.html"
+        >
+            Dealer
+        </a>
+
+
+    </div>
+
+
+    <div class="nav-actions">
+
+
+        <button
+            type="button"
+            class="theme-btn"
+            id="themeBtn"
+            aria-label="Toggle theme"
+        >
+            ☾
+        </button>
+
+
+        <a
+            href="login.html"
+            class="sell-btn"
+        >
+            + Sell Vehicle
+        </a>
+
+
+        <button
+            type="button"
+            class="menu-btn"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
+
+
+    </div>
+
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+
+    <!-- =================================================
+         LEFT
+    ================================================== -->
+
+    <div class="hero-left">
+
+
+        <div class="hero-badge">
+
+
+            <span class="hero-dot"></span>
+
+
+            Sri Lanka's Smarter Vehicle Marketplace
+
+
+        </div>
+
+
+        <h1>
+
+
+            <span class="line">
+                Find a vehicle
+            </span>
+
+
+            <span class="line purple">
+                worth buying.
+            </span>
+
+
+        </h1>
+
+
+        <p class="hero-text">
+
+            Search smarter. Compare better.
+            Explore real marketplace listings
+            and make a more confident vehicle decision.
+
+        </p>
+
+
+        <!-- =================================================
+             SEARCH
+        ================================================== -->
+
+        <div class="search-card">
+
+
+            <div class="search-card-head">
+
+
+                <div>
+
+                    <div class="search-title">
+                        Find your next vehicle
+                    </div>
+
+
+                    <div class="search-subtitle">
+                        Search the live PROPERTY DEALERS marketplace
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="search.html"
+                    class="search-link"
+                >
+                    Full Search →
+                </a>
+
+
+            </div>
+
+
+            <div class="search-grid">
+
+
+                <!-- MAKE -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Make
+                    </label>
+
+
+                    <select id="makeInput">
+
+
+                        <option value="">
+                            All Makes
+                        </option>
+
+
+                        <option>Toyota</option>
+                        <option>Honda</option>
+                        <option>Nissan</option>
+                        <option>Suzuki</option>
+                        <option>Mitsubishi</option>
+                        <option>Mazda</option>
+                        <option>Hyundai</option>
+                        <option>Kia</option>
+                        <option>BMW</option>
+                        <option>Mercedes-Benz</option>
+                        <option>Audi</option>
+                        <option>Volkswagen</option>
+                        <option>Ford</option>
+                        <option>Chevrolet</option>
+                        <option>Peugeot</option>
+                        <option>Renault</option>
+                        <option>Subaru</option>
+                        <option>Volvo</option>
+                        <option>Isuzu</option>
+                        <option>Perodua</option>
+                        <option>Proton</option>
+                        <option>Chery</option>
+                        <option>MG</option>
+                        <option>Geely</option>
+                        <option>Lexus</option>
+                        <option>Land Rover</option>
+                        <option>Jeep</option>
+                        <option>Infiniti</option>
+                        <option>Other</option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- MODEL -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Model
+                    </label>
+
+
+                    <input
+                        id="modelInput"
+                        type="text"
+                        placeholder="e.g. Aqua"
+                        autocomplete="off"
+                    >
+
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        District
+                    </label>
+
+
+                    <select id="locationInput">
+
+
+                        <option value="">
+                            All Districts
+                        </option>
+
+
+                        <option>
+                            Colombo
+                        </option>
+
+                        <option>
+                            Gampaha
+                        </option>
+
+                        <option>
+                            Kalutara
+                        </option>
+
+                        <option>
+                            Kandy
+                        </option>
+
+                        <option>
+                            Matale
+                        </option>
+
+                        <option>
+                            Nuwara Eliya
+                        </option>
+
+                        <option>
+                            Galle
+                        </option>
+
+                        <option>
+                            Matara
+                        </option>
+
+                        <option>
+                            Hambantota
+                        </option>
+
+                        <option>
+                            Jaffna
+                        </option>
+
+                        <option>
+                            Kilinochchi
+                        </option>
+
+                        <option>
+                            Mannar
+                        </option>
+
+                        <option>
+                            Vavuniya
+                        </option>
+
+                        <option>
+                            Mullaitivu
+                        </option>
+
+                        <option>
+                            Batticaloa
+                        </option>
+
+                        <option>
+                            Ampara
+                        </option>
+
+                        <option>
+                            Trincomalee
+                        </option>
+
+                        <option>
+                            Kurunegala
+                        </option>
+
+                        <option>
+                            Puttalam
+                        </option>
+
+                        <option>
+                            Anuradhapura
+                        </option>
+
+                        <option>
+                            Polonnaruwa
+                        </option>
+
+                        <option>
+                            Badulla
+                        </option>
+
+                        <option>
+                            Monaragala
+                        </option>
+
+                        <option>
+                            Ratnapura
+                        </option>
+
+                        <option>
+                            Kegalle
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- BUDGET -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Budget
+                    </label>
+
+
+                    <select id="budget">
+
+
+                        <option value="">
+                            Any Budget
+                        </option>
+
+
+                        <option value="0-2000000">
+                            Under Rs. 2M
+                        </option>
+
+
+                        <option value="2000000-3000000">
+                            Rs. 2M – 3M
+                        </option>
+
+
+                        <option value="3000000-4000000">
+                            Rs. 3M – 4M
+                        </option>
+
+
+                        <option value="4000000-5000000">
+                            Rs. 4M – 5M
+                        </option>
+
+
+                        <option value="5000000-7000000">
+                            Rs. 5M – 7M
+                        </option>
+
+
+                        <option value="7000000-999999999">
+                            Rs. 7M+
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- MIN PRICE -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Min Price
+                    </label>
+
+
+                    <input
+                        id="minPrice"
+                        type="number"
+                        min="0"
+                        placeholder="2,000,000"
+                    >
+
+
+                </div>
+
+
+                <!-- MAX PRICE -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Max Price
+                    </label>
+
+
+                    <input
+                        id="maxPrice"
+                        type="number"
+                        min="0"
+                        placeholder="10,000,000"
+                    >
+
+
+                </div>
+
+
+                <!-- MIN YEAR -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Min Year
+                    </label>
+
+
+                    <select id="minYear">
+
+
+                        <option value="">
+                            Any Year
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- MAX YEAR -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Max Year
+                    </label>
+
+
+                    <select id="maxYear">
+
+
+                        <option value="">
+                            Any Year
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- FUEL -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Fuel
+                    </label>
+
+
+                    <select id="fuelInput">
+
+
+                        <option value="">
+                            Any Fuel
+                        </option>
+
+
+                        <option>
+                            Petrol
+                        </option>
+
+
+                        <option>
+                            Diesel
+                        </option>
+
+
+                        <option>
+                            Hybrid
+                        </option>
+
+
+                        <option>
+                            Electric
+                        </option>
+
+
+                        <option>
+                            Plug-in Hybrid
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- TRANSMISSION -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Transmission
+                    </label>
+
+
+                    <select id="transmissionInput">
+
+
+                        <option value="">
+                            Any Transmission
+                        </option>
+
+
+                        <option>
+                            Automatic
+                        </option>
+
+
+                        <option>
+                            Manual
+                        </option>
+
+
+                        <option>
+                            CVT
+                        </option>
+
+
+                        <option>
+                            DCT
+                        </option>
+
+
+                        <option>
+                            AMT
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- BODY -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Body Type
+                    </label>
+
+
+                    <select id="bodyInput">
+
+
+                        <option value="">
+                            Any Body Type
+                        </option>
+
+
+                        <option>
+                            Sedan
+                        </option>
+
+
+                        <option>
+                            Hatchback
+                        </option>
+
+
+                        <option>
+                            SUV
+                        </option>
+
+
+                        <option>
+                            Wagon
+                        </option>
+
+
+                        <option>
+                            MPV
+                        </option>
+
+
+                        <option>
+                            Van
+                        </option>
+
+
+                        <option>
+                            Pickup
+                        </option>
+
+
+                        <option>
+                            Coupe
+                        </option>
+
+
+                        <option>
+                            Convertible
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- MILEAGE -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Max Mileage
+                    </label>
+
+
+                    <select id="mileageInput">
+
+
+                        <option value="">
+                            Any Mileage
+                        </option>
+
+
+                        <option value="20000">
+                            Under 20,000 km
+                        </option>
+
+
+                        <option value="50000">
+                            Under 50,000 km
+                        </option>
+
+
+                        <option value="75000">
+                            Under 75,000 km
+                        </option>
+
+
+                        <option value="100000">
+                            Under 100,000 km
+                        </option>
+
+
+                        <option value="150000">
+                            Under 150,000 km
+                        </option>
+
+
+                        <option value="200000">
+                            Under 200,000 km
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- CONDITION -->
+
+                <div class="search-field">
+
+
+                    <label>
+                        Condition
+                    </label>
+
+
+                    <select id="conditionInput">
+
+
+                        <option value="">
+                            Any Condition
+                        </option>
+
+
+                        <option>
+                            Brand New
+                        </option>
+
+
+                        <option>
+                            Used
+                        </option>
+
+
+                        <option>
+                            Reconditioned
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <button
+                    type="button"
+                    id="searchBtn"
+                    class="search-submit"
+                >
+
+                    🔎 Search Vehicles
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         RIGHT PANEL
+    ================================================== -->
+
+    <div class="hero-panel">
+
+
+        <div class="panel-grid"></div>
+
+
+        <div class="panel-top">
+
+
+            <div class="panel-label">
+                Marketplace Intelligence
+            </div>
+
+
+            <div class="live-pill">
+
+
+                <i></i>
+
+
+                LIVE MARKET
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="panel-content">
+
+
+            <div class="panel-kicker">
+                PROPERTY DEALERS
+            </div>
+
+
+            <h2>
+                Search less.
+                Decide better.
+            </h2>
+
+
+            <p class="panel-description">
+                Find vehicles by the details that matter,
+                compare your options and contact sellers
+                through the methods they choose.
+            </p>
+
+
+            <div class="insight-grid">
+
+
+                <div class="insight-card">
+
+
+                    <small>
+                        Active Vehicles
+                    </small>
+
+
+                    <strong
+                        id="heroVehicleCount"
+                    >
+                        —
+                    </strong>
+
+
+                    <span>
+                        Live listings
+                    </span>
+
+
+                </div>
+
+
+                <div class="insight-card">
+
+
+                    <small>
+                        Latest Year
+                    </small>
+
+
+                    <strong
+                        id="heroLatestYear"
+                    >
+                        —
+                    </strong>
+
+
+                    <span>
+                        Newest listing
+                    </span>
+
+
+                </div>
+
+
+                <div class="insight-card wide">
+
+
+                    <small>
+                        Marketplace Status
+                    </small>
+
+
+                    <strong
+                        id="heroStatus"
+                    >
+                        CONNECTING
+                    </strong>
+
+
+                    <span
+                        id="heroStatusText"
+                    >
+                        Connecting to Firestore...
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="panel-buttons">
+
+
+            <a
+                href="search.html"
+                class="panel-button"
+            >
+                Explore Vehicles →
+            </a>
+
+
+            <a
+                href="compare.html"
+                class="panel-button"
+            >
+                Compare Vehicles →
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     TRUST
+===================================================== -->
+
+<section class="trust-strip">
+
+
+    <div class="trust-item">
+
+
+        <strong id="vehicleCount">
+            0
+        </strong>
+
+
+        <span>
+            Active Vehicles
+        </span>
+
+
+    </div>
+
+
+    <div class="trust-item">
+
+
+        <strong>
+            3.2K+
+        </strong>
+
+
+        <span>
+            Verified Sellers
+        </span>
+
+
+    </div>
+
+
+    <div class="trust-item">
+
+
+        <strong>
+            8.5K+
+        </strong>
+
+
+        <span>
+            Active Buyers
+        </span>
+
+
+    </div>
+
+
+    <div class="trust-item">
+
+
+        <strong>
+            96%
+        </strong>
+
+
+        <span>
+            Buyer Satisfaction
+        </span>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     FEATURED VEHICLES
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="section-top">
+
+
+        <div>
+
+
+            <div class="section-kicker">
+                Live Marketplace
+            </div>
+
+
+            <h2>
+                Vehicles worth checking.
+            </h2>
+
+
+            <p class="section-desc">
+                The newest approved vehicles currently available.
+            </p>
+
+
+        </div>
+
+
+        <a
+            href="search.html"
+            style="
+                min-height:42px;
+                padding:0 14px;
+                display:inline-flex;
+                align-items:center;
+                justify-content:center;
+                border:1px solid var(--border);
+                border-radius:11px;
+                background:var(--surface);
+                font-size:9px;
+                font-weight:700;
+            "
+        >
+            View all vehicles →
+        </a>
+
+
+    </div>
+
+
+    <div
+        id="featuredGrid"
+        class="featured-grid"
+    >
+
+
+        <div
+            style="
+                grid-column:1/-1;
+                min-height:190px;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                border:1px dashed var(--border);
+                border-radius:20px;
+                color:var(--muted);
+                font-size:10px;
+            "
+        >
+
+            Loading live vehicles...
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     BROWSE BY MAKE
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="section-kicker">
+        Explore
+    </div>
+
+
+    <h2>
+        Browse by make.
+    </h2>
+
+
+    <p class="section-desc">
+        Start with one of the most popular vehicle brands.
+    </p>
+
+
+    <div class="category-grid">
+
+
+        <div
+            class="category-card"
+            data-make="Toyota"
+        >
+
+            <div class="category-icon">
+                ◈
+            </div>
+
+
+            <div class="category-title">
+                Toyota
+            </div>
+
+
+            <div class="category-text">
+                Browse Toyota
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="category-card"
+            data-make="Honda"
+        >
+
+            <div class="category-icon">
+                ◉
+            </div>
+
+
+            <div class="category-title">
+                Honda
+            </div>
+
+
+            <div class="category-text">
+                Browse Honda
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="category-card"
+            data-make="Nissan"
+        >
+
+            <div class="category-icon">
+                ◆
+            </div>
+
+
+            <div class="category-title">
+                Nissan
+            </div>
+
+
+            <div class="category-text">
+                Browse Nissan
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="category-card"
+            data-make="Suzuki"
+        >
+
+            <div class="category-icon">
+                ◇
+            </div>
+
+
+            <div class="category-title">
+                Suzuki
+            </div>
+
+
+            <div class="category-text">
+                Browse Suzuki
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="category-card"
+            data-make="BMW"
+        >
+
+            <div class="category-icon">
+                ✦
+            </div>
+
+
+            <div class="category-title">
+                BMW
+            </div>
+
+
+            <div class="category-text">
+                Browse BMW
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="category-card"
+            data-make="Mercedes-Benz"
+        >
+
+            <div class="category-icon">
+                ★
+            </div>
+
+
+            <div class="category-title">
+                Mercedes-Benz
+            </div>
+
+
+            <div class="category-text">
+                Browse Mercedes
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     WHY
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="section-kicker">
+        Why PROPERTY DEALERS
+    </div>
+
+
+    <h2>
+        Built around better decisions.
+    </h2>
+
+
+    <p class="section-desc">
+        The goal isn't more listings. It's better choices.
+    </p>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+
+            <div class="why-icon">
+                ₨
+            </div>
+
+
+            <h3>
+                Search exactly what you need
+            </h3>
+
+
+            <p>
+                Filter vehicles by make, model, district,
+                price, year, fuel, transmission, body type,
+                mileage and condition.
+            </p>
+
+
+        </div>
+
+
+        <div class="why-card">
+
+
+            <div class="why-icon">
+                ⚖
+            </div>
+
+
+            <h3>
+                Compare side-by-side
+            </h3>
+
+
+            <p>
+                Select up to four marketplace vehicles and
+                compare their important specifications together.
+            </p>
+
+
+        </div>
+
+
+        <div class="why-card">
+
+
+            <div class="why-icon">
+                ✓
+            </div>
+
+
+            <h3>
+                Contact the seller
+            </h3>
+
+
+            <p>
+                View the contact options enabled by the seller
+                and use WhatsApp, phone or email when available.
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+
+    <div class="cta-kicker">
+        Start selling
+    </div>
+
+
+    <h2>
+        Have a vehicle to sell?
+    </h2>
+
+
+    <p>
+        Create a professional listing, upload your vehicle
+        photos and reach buyers searching across Sri Lanka.
+    </p>
+
+
+    <a
+        href="login.html"
+        class="cta-btn"
+    >
+        List My Vehicle →
+    </a>
+
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <span>
+        © 2026 PROPERTY DEALERS
+    </span>
+
+
+    <span>
+        Smarter decisions. Better vehicles.
+    </span>
+
+
+</footer>
+
+
+<!-- =====================================================
+     THEME
+===================================================== -->
+
+<script>
+
+const themeBtn =
+    document.getElementById(
+        "themeBtn"
+    );
+
+
+function updateThemeButton(){
+
+    const light =
+        document.documentElement
+            .classList
+            .contains("light");
+
+
+    themeBtn.textContent =
+        light
+            ? "☀"
+            : "☾";
+
+}
+
+
+updateThemeButton();
+
+
+themeBtn.addEventListener(
+    "click",
+    function(){
+
+        const light =
+            document.documentElement
+                .classList
+                .contains("light");
+
+
+        document.documentElement
+            .classList
+            .toggle(
+                "light",
+                !light
+            );
+
+
+        localStorage.setItem(
+            "pd_home_theme",
+            !light
+                ? "light"
+                : "dark"
+        );
+
+
+        updateThemeButton();
+
+    }
+);
+
+</script>
+
+
+<!-- =====================================================
+     SEARCH YEAR OPTIONS
+===================================================== -->
+
+<script>
+
+const minYear =
+    document.getElementById(
+        "minYear"
+    );
+
+
+const maxYear =
+    document.getElementById(
+        "maxYear"
+    );
+
+
+const currentYear =
+    new Date().getFullYear();
+
+
+for(
+    let year = currentYear;
+    year >= 1990;
+    year--
+){
+
+    const minOption =
+        document.createElement(
+            "option"
+        );
+
+
+    minOption.value =
+        String(year);
+
+
+    minOption.textContent =
+        String(year);
+
+
+    minYear.appendChild(
+        minOption
+    );
+
+
+    const maxOption =
+        document.createElement(
+            "option"
+        );
+
+
+    maxOption.value =
+        String(year);
+
+
+    maxOption.textContent =
+        String(year);
+
+
+    maxYear.appendChild(
+        maxOption
+    );
+
+}
+
+</script>
+
+
+<!-- =====================================================
+     FIREBASE / FIRESTORE
+===================================================== -->
+
+<script type="module">
+
+import {
+
+    db
+
+} from "./firebase.js";
+
+
+import {
+
+    collection,
+    onSnapshot
+
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const vehicleCount =
+    document.getElementById(
+        "vehicleCount"
+    );
+
+
+const heroVehicleCount =
+    document.getElementById(
+        "heroVehicleCount"
+    );
+
+
+const heroLatestYear =
+    document.getElementById(
+        "heroLatestYear"
+    );
+
+
+const heroStatus =
+    document.getElementById(
+        "heroStatus"
+    );
+
+
+const heroStatusText =
+    document.getElementById(
+        "heroStatusText"
+    );
+
+
+const featuredGrid =
+    document.getElementById(
+        "featuredGrid"
+    );
+
+
+/* =========================================================
+   LIVE DATA
+========================================================= */
+
+let vehicles = [];
+
+
+function loadVehicles(){
+
+    const vehiclesRef =
+        collection(
+            db,
+            "vehicles"
+        );
+
+
+    onSnapshot(
+
+        vehiclesRef,
+
+        snapshot => {
+
+
+            vehicles =
+                snapshot.docs
+                    .map(
+                        documentSnap => ({
+
+                            id:
+                                documentSnap.id,
+
+                            ...documentSnap.data()
+
+                        })
+                    )
+                    .filter(
+                        vehicle => {
+
+                            return (
+                                String(
+                                    vehicle.status
+                                    ||
+                                    ""
+                                )
+                                .toLowerCase()
+                                ===
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+            vehicles.sort(
+                (
+                    a,
+                    b
+                ) => {
+
+                    return (
+                        timestampValue(
+                            b.createdAt
+                        )
+                        -
+                        timestampValue(
+                            a.createdAt
+                        )
+                    );
+
+                }
+            );
+
+
+            vehicleCount.textContent =
+                vehicles.length;
+
+
+            heroVehicleCount.textContent =
+                vehicles.length;
+
+
+            heroLatestYear.textContent =
+                vehicles.length
+                ?
+                (
+                    vehicles[0].year
+                    ||
+                    "—"
+                )
+                :
+                "—";
+
+
+            heroStatus.textContent =
+                "LIVE";
+
+
+            heroStatusText.textContent =
+                "Marketplace is connected and receiving approved listings.";
+
+
+            renderFeatured();
+
+        },
+
+
+        error => {
+
+            console.error(
+                "Firestore Home error:",
+                error
+            );
+
+
+            vehicleCount.textContent =
+                "—";
+
+
+            heroVehicleCount.textContent =
+                "—";
+
+
+            heroLatestYear.textContent =
+                "—";
+
+
+            heroStatus.textContent =
+                "ERROR";
+
+
+            heroStatusText.textContent =
+                error.message
+                ||
+                "Could not connect to Firestore.";
+
+
+            featuredGrid.innerHTML = `
+
+                <div
+                    style="
+                        grid-column:1/-1;
+                        min-height:190px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        border:1px dashed var(--border);
+                        border-radius:20px;
+                        color:var(--muted);
+                        font-size:10px;
+                        text-align:center;
+                        padding:20px;
+                    "
+                >
+
+                    <div>
+
+                        <strong
+                            style="
+                                display:block;
+                                color:var(--text);
+                                margin-bottom:5px;
+                            "
+                        >
+                            Could not load vehicles
+                        </strong>
+
+                        Check your Firestore
+                        Security Rules.
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    );
+
+}
+
+
+/* =========================================================
+   FEATURED
+========================================================= */
+
+function renderFeatured(){
+
+    const featured =
+        vehicles.slice(
+            0,
+            3
+        );
+
+
+    if(
+        featured.length ===
+        0
+    ){
+
+        featuredGrid.innerHTML = `
+
+            <div
+                style="
+                    grid-column:1/-1;
+                    min-height:190px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    border:1px dashed var(--border);
+                    border-radius:20px;
+                    color:var(--muted);
+                    font-size:10px;
+                    text-align:center;
+                    padding:20px;
+                "
+            >
+
+                <div>
+
+                    <strong
+                        style="
+                            display:block;
+                            color:var(--text);
+                            margin-bottom:5px;
+                        "
+                    >
+                        No active vehicles yet
+                    </strong>
+
+                    Approved marketplace
+                    listings will appear here.
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+    featuredGrid.innerHTML =
+        featured
+            .map(
+                vehicleCardHTML
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   FEATURED VEHICLE CARD
+========================================================= */
+
+function vehicleCardHTML(
+    vehicle
+){
+
+    const title =
+        vehicle.title
+        ||
+        `${vehicle.make || ""} ${
+            vehicle.model || ""
+        }`
+        .trim()
+        ||
+        "Vehicle";
+
+
+    /*
+       Photo 1 = MAIN IMAGE.
+       image = old-data fallback.
+    */
+
+    let mainImage =
+        "";
+
+
+    if(
+        Array.isArray(
+            vehicle.photoUrls
+        )
+        &&
+        vehicle.photoUrls.length
+    ){
+
+        mainImage =
+            String(
+                vehicle.photoUrls[0]
+                ||
+                ""
+            ).trim();
+
+    }
+
+
+    if(
+        !mainImage
+        &&
+        vehicle.image
+    ){
+
+        mainImage =
+            String(
+                vehicle.image
+            ).trim();
+
+    }
+
+
+    const imageHTML =
+        mainImage
+        ?
+
+        `
+
+            <img
+                src="${escapeAttribute(
+                    mainImage
+                )}"
+                alt="${escapeAttribute(
+                    title
+                )}"
+                loading="lazy"
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='flex';
+                "
+            >
+
+
+            <div
+                class="vehicle-fallback"
+                style="
+                    display:none;
+                    width:100%;
+                    height:100%;
+                    align-items:center;
+                    justify-content:center;
+                "
+            >
+
+                🚗
+
+            </div>
+
+        `
+
+        :
+
+        `
+
+            <div
+                class="vehicle-fallback"
+            >
+                🚗
+            </div>
+
+        `;
+
+
+    return `
+
+        <article
+            class="vehicle-card"
+        >
+
+
+            <div
+                class="vehicle-image"
+            >
+
+                ${imageHTML}
+
+            </div>
+
+
+            <div
+                class="vehicle-body"
+            >
+
+
+                <div
+                    class="vehicle-top"
+                >
+
+
+                    <h3>
+
+                        ${escapeHTML(
+                            title
+                        )}
+
+                    </h3>
+
+
+                    <span>
+                        Available
+                    </span>
+
+
+                </div>
+
+
+                <div
+                    class="vehicle-price"
+                >
+
+                    ${formatPrice(
+                        vehicle.price
+                    )}
+
+                </div>
+
+
+                <div
+                    class="vehicle-meta"
+                >
+
+
+                    <span>
+
+                        ${escapeHTML(
+                            vehicle.year
+                            ||
+                            "—"
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        ${escapeHTML(
+                            formatMileage(
+                                vehicle.mileage
+                            )
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        ${escapeHTML(
+                            vehicle.fuel
+                            ||
+                            "—"
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        ${escapeHTML(
+                            vehicle.transmission
+                            ||
+                            "—"
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        ${escapeHTML(
+                            vehicle.location
+                            ||
+                            "Sri Lanka"
+                        )}
+
+                    </span>
+
+
+                </div>
+
+
+                <a
+                    href="vehicle.html?vehicle=${encodeURIComponent(
+                        vehicle.id
+                    )}"
+                    class="vehicle-view"
+                >
+
+                    View Details →
+
+                </a>
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+const searchBtn =
+    document.getElementById(
+        "searchBtn"
+    );
+
+
+const makeInput =
+    document.getElementById(
+        "makeInput"
+    );
+
+
+const modelInput =
+    document.getElementById(
+        "modelInput"
+    );
+
+
+const locationInput =
+    document.getElementById(
+        "locationInput"
+    );
+
+
+const budgetInput =
+    document.getElementById(
+        "budget"
+    );
+
+
+const minPriceInput =
+    document.getElementById(
+        "minPrice"
+    );
+
+
+const maxPriceInput =
+    document.getElementById(
+        "maxPrice"
+    );
+
+
+const fuelInput =
+    document.getElementById(
+        "fuelInput"
+    );
+
+
+const transmissionInput =
+    document.getElementById(
+        "transmissionInput"
+    );
+
+
+const bodyInput =
+    document.getElementById(
+        "bodyInput"
+    );
+
+
+const mileageInput =
+    document.getElementById(
+        "mileageInput"
+    );
+
+
+const conditionInput =
+    document.getElementById(
+        "conditionInput"
+    );
+
+
+function performSearch(){
+
+    const params =
+        new URLSearchParams();
+
+
+    const make =
+        makeInput.value.trim();
+
+
+    const model =
+        modelInput.value.trim();
+
+
+    const location =
+        locationInput.value;
+
+
+    const budget =
+        budgetInput.value;
+
+
+    const minPrice =
+        minPriceInput.value;
+
+
+    const maxPrice =
+        maxPriceInput.value;
+
+
+    const minYearValue =
+        minYear.value;
+
+
+    const maxYearValue =
+        maxYear.value;
+
+
+    const fuel =
+        fuelInput.value;
+
+
+    const transmission =
+        transmissionInput.value;
+
+
+    const body =
+        bodyInput.value;
+
+
+    const mileage =
+        mileageInput.value;
+
+
+    const condition =
+        conditionInput.value;
+
+
+    if(make){
+
+        params.set(
+            "make",
+            make
+        );
+
+    }
+
+
+    if(model){
+
+        params.set(
+            "model",
+            model
+        );
+
+    }
+
+
+    if(location){
+
+        params.set(
+            "location",
+            location
+        );
+
+    }
+
+
+    /*
+       Budget is used by the existing
+       search.html parser.
+    */
+
+    if(budget){
+
+        const parts =
+            budget.split(
+                "-"
+            );
+
+
+        if(
+            parts.length >=
+            2
+        ){
+
+            params.set(
+                "budget",
+                `${Number(parts[0]) / 1000000}-${Number(parts[1]) / 1000000}`
+            );
+
+        }
+
+    }
+
+
+    /*
+       Manual price values override
+       budget when entered.
+    */
+
+    if(minPrice){
+
+        params.set(
+            "minPrice",
+            minPrice
+        );
+
+    }
+
+
+    if(maxPrice){
+
+        params.set(
+            "maxPrice",
+            maxPrice
+        );
+
+    }
+
+
+    if(minYearValue){
+
+        params.set(
+            "minYear",
+            minYearValue
+        );
+
+    }
+
+
+    if(maxYearValue){
+
+        params.set(
+            "maxYear",
+            maxYearValue
+        );
+
+    }
+
+
+    if(fuel){
+
+        params.set(
+            "fuel",
+            fuel
+        );
+
+    }
+
+
+    if(transmission){
+
+        params.set(
+            "transmission",
+            transmission
+        );
+
+    }
+
+
+    if(body){
+
+        params.set(
+            "body",
+            body
+        );
+
+    }
+
+
+    if(mileage){
+
+        params.set(
+            "maxMileage",
+            mileage
+        );
+
+    }
+
+
+    if(condition){
+
+        params.set(
+            "condition",
+            condition
+        );
+
+    }
+
+
+    const query =
+        params.toString();
+
+
+    window.location.href =
+        "search.html"
+        +
+        (
+            query
+            ?
+            "?" + query
+            :
+            ""
+        );
+
+}
+
+
+searchBtn.addEventListener(
+    "click",
+    performSearch
+);
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+[
+    modelInput
+]
+.forEach(
+    input => {
+
+        input.addEventListener(
+            "keydown",
+            function(event){
+
+                if(
+                    event.key ===
+                    "Enter"
+                ){
+
+                    event.preventDefault();
+
+                    performSearch();
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CATEGORY LINKS
+========================================================= */
+
+document
+    .querySelectorAll(
+        "[data-make]"
+    )
+    .forEach(
+        card => {
+
+            card.addEventListener(
+                "click",
+                function(){
+
+                    const make =
+                        card.dataset.make;
+
+
+                    window.location.href =
+                        "search.html?make="
+                        +
+                        encodeURIComponent(
+                            make
+                        );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   FORMAT PRICE
+========================================================= */
+
+function formatPrice(
+    value
+){
+
+    return (
+        "Rs. "
+        +
+        Number(
+            value
+            ||
+            0
+        )
+        .toLocaleString(
+            "en-LK"
+        )
+    );
+
+}
+
+
+/* =========================================================
+   FORMAT MILEAGE
+========================================================= */
+
+function formatMileage(
+    value
+){
+
+    return (
+        Number(
+            value
+            ||
+            0
+        )
+        .toLocaleString(
+            "en-LK"
+        )
+        +
+        " km"
+    );
+
+}
+
+
+/* =========================================================
+   TIMESTAMP
+========================================================= */
+
+function timestampValue(
+    value
+){
+
+    if(
+        !value
+    ){
+
+        return 0;
+
+    }
+
+
+    if(
+        typeof value.toMillis ===
+        "function"
+    ){
+
+        return value.toMillis();
+
+    }
+
+
+    if(
+        typeof value.seconds ===
+        "number"
+    ){
+
+        return (
+            value.seconds
+            *
+            1000
+        );
+
+    }
+
+
+    if(
+        typeof value ===
+        "number"
+    ){
+
+        return value;
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeHTML(
+    value
+){
+
+    return String(
+        value
+        ??
+        ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+function escapeAttribute(
+    value
+){
+
+    return escapeHTML(
+        value
+    );
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadVehicles();
+
+</script>
+
+
+</body>
+
+</html>
+```

@@ -1,0 +1,5058 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vehicles | PROPERTY DEALERS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<script>
+(function(){
+
+    if(
+        localStorage.getItem("pd_theme") === "dark"
+    ){
+        document.documentElement.classList.add("dark");
+    }
+
+})();
+</script>
+
+
+<style>
+
+/* =========================================================
+   THEME
+========================================================= */
+
+:root{
+
+    --bg:#f5f3fb;
+    --surface:#ffffff;
+    --surface2:#faf9fd;
+
+    --text:#17131f;
+    --muted:#756e82;
+
+    --border:#e7e1ef;
+
+    --purple:#7c3aed;
+    --purple2:#9b63ff;
+    --purple-light:rgba(124,58,237,.10);
+
+    --green:#16a34a;
+    --red:#ef4444;
+    --orange:#f59e0b;
+    --blue:#2563eb;
+
+    --shadow:
+        0 18px 50px
+        rgba(67,45,105,.09);
+
+}
+
+
+html.dark{
+
+    --bg:#09080e;
+    --surface:#12101a;
+    --surface2:#17141f;
+
+    --text:#f8f5ff;
+    --muted:#aaa2b8;
+
+    --border:#2b2635;
+
+    --purple:#9b63ff;
+    --purple2:#b98aff;
+    --purple-light:rgba(155,99,255,.13);
+
+    --green:#22c55e;
+    --red:#ff5c68;
+    --orange:#fbbf24;
+    --blue:#60a5fa;
+
+    --shadow:
+        0 25px 65px
+        rgba(0,0,0,.50);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(124,58,237,.10),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 95% 20%,
+            rgba(0,200,255,.06),
+            transparent 22%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+}
+
+
+button,
+input,
+select{
+
+    font-family:inherit;
+
+}
+
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    width:100%;
+    height:74px;
+
+    padding:0 5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:var(--surface);
+
+    border-bottom:
+        1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+
+.logo{
+
+    color:var(--text);
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:-.6px;
+
+}
+
+
+.logo span{
+
+    color:var(--purple);
+
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+
+.nav-links a{
+
+    min-width:80px;
+
+    height:40px;
+
+    padding:0 13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    background:var(--purple-light);
+
+    color:var(--purple);
+
+}
+
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+}
+
+
+.theme-btn{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:0;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    background:var(--surface2);
+
+    color:var(--text);
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.theme-btn:hover{
+
+    border-color:var(--purple);
+
+}
+
+
+.sell-btn{
+
+    height:42px;
+
+    padding:0 15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
+
+    width:min(
+        1400px,
+        92%
+    );
+
+    margin:auto;
+
+    padding:
+        40px 0 80px;
+
+}
+
+
+.page-header{
+
+    margin-bottom:25px;
+
+}
+
+
+.eyebrow{
+
+    color:var(--purple);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:9px;
+
+}
+
+
+.page-header h1{
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            48px
+        );
+
+    line-height:1;
+
+    letter-spacing:-1.8px;
+
+    margin-bottom:10px;
+
+}
+
+
+.page-header p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   SEARCH PANEL
+========================================================= */
+
+.search-panel{
+
+    padding:15px;
+
+    background:var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:24px;
+
+}
+
+
+.search-top{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(250px,2fr)
+        repeat(
+            2,
+            minmax(150px,1fr)
+        )
+        120px;
+
+    gap:9px;
+
+}
+
+
+.search-input,
+.search-select{
+
+    width:100%;
+
+    height:44px;
+
+    padding:0 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    background:var(--surface2);
+
+    color:var(--text);
+
+    outline:none;
+
+    font-size:11px;
+
+}
+
+
+.search-input::placeholder{
+
+    color:var(--muted);
+
+}
+
+
+.search-input:focus,
+.search-select:focus{
+
+    border-color:var(--purple);
+
+}
+
+
+.search-select{
+
+    color-scheme:light;
+
+}
+
+
+html.dark .search-select{
+
+    color-scheme:dark;
+
+}
+
+
+.search-button{
+
+    height:44px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.filters{
+
+    margin-top:10px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            6,
+            1fr
+        );
+
+    gap:9px;
+
+}
+
+
+.filter-label{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+
+.filter-label span{
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    text-transform:uppercase;
+
+}
+
+
+.filter-label input,
+.filter-label select{
+
+    width:100%;
+
+    height:41px;
+
+    padding:0 10px;
+
+    background:var(--surface2);
+
+    color:var(--text);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    outline:none;
+
+    font-size:10px;
+
+}
+
+
+.filter-label input:focus,
+.filter-label select:focus{
+
+    border-color:var(--purple);
+
+}
+
+
+.filter-label select{
+
+    color-scheme:light;
+
+}
+
+
+html.dark .filter-label select{
+
+    color-scheme:dark;
+
+}
+
+
+.clear-btn{
+
+    height:41px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:transparent;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+.clear-btn:hover{
+
+    color:var(--purple);
+
+    border-color:var(--purple);
+
+}
+
+
+/* =========================================================
+   FEATURED SECTION
+========================================================= */
+
+.featured-section{
+
+    margin-bottom:28px;
+
+}
+
+
+.featured-heading{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:14px;
+
+}
+
+
+.featured-heading h2{
+
+    font-size:20px;
+
+    letter-spacing:-.7px;
+
+}
+
+
+.featured-heading p{
+
+    margin-top:5px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+}
+
+
+.featured-label{
+
+    padding:7px 9px;
+
+    border-radius:50px;
+
+    background:var(--purple-light);
+
+    color:var(--purple);
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+.featured-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
+
+    gap:14px;
+
+}
+
+
+.featured-card{
+
+    background:var(--surface);
+
+    border:
+        1px solid
+        rgba(124,58,237,.25);
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.22s;
+
+}
+
+
+.featured-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:
+        var(--purple);
+
+}
+
+
+.featured-image{
+
+    height:175px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(124,58,237,.15),
+            transparent 55%
+        ),
+
+        var(--surface2);
+
+    overflow:hidden;
+
+}
+
+
+.featured-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.featured-fallback{
+
+    font-size:65px;
+
+}
+
+
+.featured-badge{
+
+    position:absolute;
+
+    top:10px;
+    left:10px;
+
+    z-index:2;
+
+    padding:6px 8px;
+
+    border-radius:50px;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    font-size:7px;
+
+    font-weight:800;
+
+}
+
+
+.featured-body{
+
+    padding:14px;
+
+}
+
+
+.featured-title{
+
+    font-size:13px;
+
+    font-weight:800;
+
+    line-height:1.3;
+
+    margin-bottom:6px;
+
+}
+
+
+.featured-price{
+
+    color:var(--purple);
+
+    font-size:16px;
+
+    font-weight:800;
+
+}
+
+
+.featured-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin-top:8px;
+
+}
+
+
+.featured-meta span{
+
+    padding:5px 7px;
+
+    border-radius:7px;
+
+    background:var(--surface2);
+
+    color:var(--muted);
+
+    font-size:8px;
+
+}
+
+
+.featured-view{
+
+    width:100%;
+
+    height:35px;
+
+    margin-top:11px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    color:var(--text);
+
+    font-size:9px;
+
+    font-weight:800;
+
+}
+
+
+.featured-view:hover{
+
+    border-color:var(--purple);
+
+    color:var(--purple);
+
+}
+
+
+.featured-empty{
+
+    grid-column:1/-1;
+
+    padding:25px;
+
+    border:
+        1px dashed var(--border);
+
+    border-radius:13px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+}
+
+
+/* =========================================================
+   RESULTS BAR
+========================================================= */
+
+.results-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    margin-bottom:14px;
+
+}
+
+
+.results-title{
+
+    font-size:16px;
+
+    font-weight:800;
+
+}
+
+
+.results-info{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+}
+
+
+/* =========================================================
+   VEHICLE GRID
+========================================================= */
+
+.vehicle-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0,1fr)
+        );
+
+    gap:16px;
+
+}
+
+
+.vehicle-card{
+
+    background:var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.22s;
+
+}
+
+
+.vehicle-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(124,58,237,.35);
+
+}
+
+
+.card-image{
+
+    height:190px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(124,58,237,.15),
+            transparent 55%
+        ),
+
+        var(--surface2);
+
+    overflow:hidden;
+
+}
+
+
+.card-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.card-icon{
+
+    font-size:65px;
+
+}
+
+
+.status-badge{
+
+    position:absolute;
+
+    top:12px;
+    left:12px;
+
+    z-index:3;
+
+    padding:6px 9px;
+
+    border-radius:50px;
+
+    color:#fff;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:.6px;
+
+}
+
+
+.status-badge.available{
+
+    background:var(--green);
+
+}
+
+
+.featured-card-badge{
+
+    position:absolute;
+
+    top:12px;
+    right:12px;
+
+    z-index:3;
+
+    padding:6px 8px;
+
+    border-radius:50px;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    font-size:7px;
+
+    font-weight:800;
+
+}
+
+
+.photo-count{
+
+    position:absolute;
+
+    right:10px;
+    bottom:10px;
+
+    z-index:3;
+
+    padding:5px 8px;
+
+    border-radius:50px;
+
+    background:rgba(0,0,0,.58);
+
+    color:#fff;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.card-body{
+
+    padding:15px;
+
+}
+
+
+.card-title{
+
+    font-size:14px;
+
+    font-weight:800;
+
+    line-height:1.35;
+
+    margin-bottom:7px;
+
+}
+
+
+.card-price{
+
+    color:var(--purple);
+
+    font-size:19px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+
+}
+
+
+.card-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px 10px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    margin-bottom:14px;
+
+}
+
+
+.card-location{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    margin-bottom:13px;
+
+}
+
+
+.view-btn{
+
+    width:100%;
+
+    height:39px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:var(--purple-light);
+
+    color:var(--purple);
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+
+.view-btn:hover{
+
+    background:var(--purple);
+
+    color:#fff;
+
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+
+.page-btn{
+
+    min-width:38px;
+
+    height:38px;
+
+    padding:0 9px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.page-btn:hover{
+
+    border-color:var(--purple);
+
+    color:var(--purple);
+
+}
+
+
+.page-btn.active{
+
+    background:var(--purple);
+
+    border-color:var(--purple);
+
+    color:#fff;
+
+}
+
+
+.page-btn:disabled{
+
+    opacity:.35;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty{
+
+    padding:60px 20px;
+
+    text-align:center;
+
+    background:var(--surface);
+
+    border:
+        1px dashed var(--border);
+
+    border-radius:17px;
+
+    color:var(--muted);
+
+}
+
+
+.empty-icon{
+
+    font-size:42px;
+
+    margin-bottom:11px;
+
+}
+
+
+.empty strong{
+
+    display:block;
+
+    color:var(--text);
+
+    font-size:14px;
+
+    margin-bottom:5px;
+
+}
+
+
+.empty span{
+
+    font-size:10px;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+
+    padding:65px 20px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    padding:25px;
+
+    border-top:
+        1px solid var(--border);
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1150px){
+
+    .featured-grid{
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+    }
+
+
+    .vehicle-grid{
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(0,1fr)
+            );
+
+    }
+
+
+    .filters{
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+    }
+
+
+    .search-top{
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .search-button{
+
+        grid-column:
+            1/-1;
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+
+    .vehicle-grid{
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .navbar{
+
+        padding:0 4%;
+
+    }
+
+
+    .sell-btn{
+
+        display:none;
+
+    }
+
+
+    .page{
+
+        width:94%;
+
+        padding-top:28px;
+
+    }
+
+
+    .search-top{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .search-button{
+
+        grid-column:auto;
+
+    }
+
+
+    .filters{
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .featured-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .vehicle-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .card-image{
+
+        height:220px;
+
+    }
+
+
+    .featured-image{
+
+        height:220px;
+
+    }
+
+
+    .results-bar{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+    .featured-heading{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+    .pagination{
+
+        flex-wrap:wrap;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+        PROPERTY<span>DEALERS</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a
+            href="search.html"
+            class="active"
+        >
+            Vehicles
+        </a>
+
+        <a href="compare.html">
+            Compare
+        </a>
+
+        <a href="dealer.html">
+            Dealer
+        </a>
+
+    </div>
+
+
+    <div class="nav-actions">
+
+        <button
+            type="button"
+            class="theme-btn"
+            id="themeBtn"
+        >
+            ☾
+        </button>
+
+
+        <a
+            href="login.html"
+            class="sell-btn"
+        >
+            + Sell Vehicle
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+    <header class="page-header">
+
+        <div class="eyebrow">
+            PROPERTY DEALERS / MARKETPLACE
+        </div>
+
+
+        <h1>
+            Find your next vehicle.
+        </h1>
+
+
+        <p>
+            Search verified marketplace listings and explore available vehicles.
+        </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         SEARCH PANEL
+    ====================================================== -->
+
+    <section class="search-panel">
+
+
+        <div class="search-top">
+
+
+            <input
+                id="searchInput"
+                class="search-input"
+                type="text"
+                placeholder="Search vehicle, make or model..."
+                autocomplete="off"
+            >
+
+
+            <select
+                id="makeFilter"
+                class="search-select"
+            >
+
+                <option value="">
+                    All Makes
+                </option>
+
+            </select>
+
+
+            <select
+                id="modelFilter"
+                class="search-select"
+            >
+
+                <option value="">
+                    All Models
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                id="searchButton"
+                class="search-button"
+            >
+                Search
+            </button>
+
+
+        </div>
+
+
+        <div class="filters">
+
+
+            <!-- YEAR -->
+
+            <label class="filter-label">
+
+                <span>
+                    Year
+                </span>
+
+                <select id="yearFilter">
+
+                    <option value="">
+                        Any Year
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- FUEL -->
+
+            <label class="filter-label">
+
+                <span>
+                    Fuel
+                </span>
+
+                <select id="fuelFilter">
+
+                    <option value="">
+                        Any Fuel
+                    </option>
+
+                    <option value="Petrol">
+                        Petrol
+                    </option>
+
+                    <option value="Diesel">
+                        Diesel
+                    </option>
+
+                    <option value="Hybrid">
+                        Hybrid
+                    </option>
+
+                    <option value="Electric">
+                        Electric
+                    </option>
+
+                    <option value="Plug-in Hybrid">
+                        Plug-in Hybrid
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- TRANSMISSION -->
+
+            <label class="filter-label">
+
+                <span>
+                    Transmission
+                </span>
+
+                <select id="transmissionFilter">
+
+                    <option value="">
+                        Any Transmission
+                    </option>
+
+                    <option value="Automatic">
+                        Automatic
+                    </option>
+
+                    <option value="Manual">
+                        Manual
+                    </option>
+
+                    <option value="CVT">
+                        CVT
+                    </option>
+
+                    <option value="DCT">
+                        DCT
+                    </option>
+
+                    <option value="AMT">
+                        AMT
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- BODY -->
+
+            <label class="filter-label">
+
+                <span>
+                    Body Type
+                </span>
+
+                <select id="bodyFilter">
+
+                    <option value="">
+                        Any Body Type
+                    </option>
+
+                    <option value="Sedan">
+                        Sedan
+                    </option>
+
+                    <option value="Hatchback">
+                        Hatchback
+                    </option>
+
+                    <option value="SUV">
+                        SUV
+                    </option>
+
+                    <option value="Wagon">
+                        Wagon
+                    </option>
+
+                    <option value="MPV">
+                        MPV
+                    </option>
+
+                    <option value="Van">
+                        Van
+                    </option>
+
+                    <option value="Pickup">
+                        Pickup
+                    </option>
+
+                    <option value="Coupe">
+                        Coupe
+                    </option>
+
+                    <option value="Convertible">
+                        Convertible
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- DISTRICT -->
+
+            <label class="filter-label">
+
+                <span>
+                    District
+                </span>
+
+                <select id="locationFilter">
+
+                    <option value="">
+                        All Sri Lanka
+                    </option>
+
+                    <option value="Ampara">
+                        Ampara
+                    </option>
+
+                    <option value="Anuradhapura">
+                        Anuradhapura
+                    </option>
+
+                    <option value="Badulla">
+                        Badulla
+                    </option>
+
+                    <option value="Batticaloa">
+                        Batticaloa
+                    </option>
+
+                    <option value="Colombo">
+                        Colombo
+                    </option>
+
+                    <option value="Galle">
+                        Galle
+                    </option>
+
+                    <option value="Gampaha">
+                        Gampaha
+                    </option>
+
+                    <option value="Hambantota">
+                        Hambantota
+                    </option>
+
+                    <option value="Jaffna">
+                        Jaffna
+                    </option>
+
+                    <option value="Kalutara">
+                        Kalutara
+                    </option>
+
+                    <option value="Kandy">
+                        Kandy
+                    </option>
+
+                    <option value="Kegalle">
+                        Kegalle
+                    </option>
+
+                    <option value="Kilinochchi">
+                        Kilinochchi
+                    </option>
+
+                    <option value="Kurunegala">
+                        Kurunegala
+                    </option>
+
+                    <option value="Mannar">
+                        Mannar
+                    </option>
+
+                    <option value="Matale">
+                        Matale
+                    </option>
+
+                    <option value="Matara">
+                        Matara
+                    </option>
+
+                    <option value="Monaragala">
+                        Monaragala
+                    </option>
+
+                    <option value="Mullaitivu">
+                        Mullaitivu
+                    </option>
+
+                    <option value="Nuwara Eliya">
+                        Nuwara Eliya
+                    </option>
+
+                    <option value="Polonnaruwa">
+                        Polonnaruwa
+                    </option>
+
+                    <option value="Puttalam">
+                        Puttalam
+                    </option>
+
+                    <option value="Ratnapura">
+                        Ratnapura
+                    </option>
+
+                    <option value="Trincomalee">
+                        Trincomalee
+                    </option>
+
+                    <option value="Vavuniya">
+                        Vavuniya
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- SORT -->
+
+            <label class="filter-label">
+
+                <span>
+                    Sort
+                </span>
+
+                <select id="sortFilter">
+
+                    <option value="featuredNewest">
+                        Featured + Newest
+                    </option>
+
+                    <option value="newest">
+                        Newest
+                    </option>
+
+                    <option value="priceLow">
+                        Price: Low → High
+                    </option>
+
+                    <option value="priceHigh">
+                        Price: High → Low
+                    </option>
+
+                    <option value="mileageLow">
+                        Mileage: Low → High
+                    </option>
+
+                    <option value="yearHigh">
+                        Year: Newest
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- MIN PRICE -->
+
+            <label class="filter-label">
+
+                <span>
+                    Min Price
+                </span>
+
+                <input
+                    id="minPrice"
+                    type="number"
+                    min="0"
+                    placeholder="Rs. 2M"
+                >
+
+            </label>
+
+
+            <!-- MAX PRICE -->
+
+            <label class="filter-label">
+
+                <span>
+                    Max Price
+                </span>
+
+                <input
+                    id="maxPrice"
+                    type="number"
+                    min="0"
+                    placeholder="Rs. 10M"
+                >
+
+            </label>
+
+
+            <!-- MAX MILEAGE -->
+
+            <label class="filter-label">
+
+                <span>
+                    Max Mileage
+                </span>
+
+                <select id="mileageFilter">
+
+                    <option value="">
+                        Any Mileage
+                    </option>
+
+                    <option value="20000">
+                        Under 20,000 km
+                    </option>
+
+                    <option value="50000">
+                        Under 50,000 km
+                    </option>
+
+                    <option value="75000">
+                        Under 75,000 km
+                    </option>
+
+                    <option value="100000">
+                        Under 100,000 km
+                    </option>
+
+                    <option value="150000">
+                        Under 150,000 km
+                    </option>
+
+                    <option value="200000">
+                        Under 200,000 km
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- CONDITION -->
+
+            <label class="filter-label">
+
+                <span>
+                    Condition
+                </span>
+
+                <select id="conditionFilter">
+
+                    <option value="">
+                        Any Condition
+                    </option>
+
+                    <option value="Brand New">
+                        Brand New
+                    </option>
+
+                    <option value="Used">
+                        Used
+                    </option>
+
+                    <option value="Reconditioned">
+                        Reconditioned
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <button
+                type="button"
+                id="clearFilters"
+                class="clear-btn"
+            >
+                Clear Filters
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         PAID / FEATURED
+    ====================================================== -->
+
+    <section class="featured-section">
+
+
+        <div class="featured-heading">
+
+
+            <div>
+
+                <h2>
+                    Paid / Featured Vehicles
+                </h2>
+
+                <p>
+                    Promoted listings from sellers who chose extra visibility.
+                </p>
+
+            </div>
+
+
+            <div class="featured-label">
+                ★ PROMOTED
+            </div>
+
+
+        </div>
+
+
+        <div
+            id="featuredGrid"
+            class="featured-grid"
+        >
+
+            <div class="featured-empty">
+                Loading featured vehicles...
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         AVAILABLE VEHICLES
+    ====================================================== -->
+
+    <div class="results-bar">
+
+
+        <div class="results-title">
+            Available Vehicles
+        </div>
+
+
+        <div
+            id="resultsInfo"
+            class="results-info"
+        >
+            Loading...
+        </div>
+
+
+    </div>
+
+
+    <section
+        id="vehicleGrid"
+        class="vehicle-grid"
+    >
+
+        <div
+            class="loading"
+            style="grid-column:1/-1;"
+        >
+            Loading vehicles from Firestore...
+        </div>
+
+    </section>
+
+
+    <div
+        id="pagination"
+        class="pagination"
+    ></div>
+
+
+</main>
+
+
+<footer class="footer">
+
+    © 2026 PROPERTY DEALERS — Vehicle Marketplace
+
+</footer>
+
+
+<!-- =========================================================
+     THEME
+========================================================= -->
+
+<script>
+
+(function(){
+
+    const themeBtn =
+        document.getElementById(
+            "themeBtn"
+        );
+
+
+    function updateThemeButton(){
+
+        const dark =
+            document.documentElement
+                .classList
+                .contains("dark");
+
+
+        themeBtn.textContent =
+            dark
+                ? "☀"
+                : "☾";
+
+    }
+
+
+    updateThemeButton();
+
+
+    themeBtn.addEventListener(
+        "click",
+        function(){
+
+            const dark =
+                document.documentElement
+                    .classList
+                    .contains("dark");
+
+
+            document.documentElement
+                .classList
+                .toggle(
+                    "dark"
+                );
+
+
+            localStorage.setItem(
+                "pd_theme",
+                dark
+                    ? "light"
+                    : "dark"
+            );
+
+
+            updateThemeButton();
+
+        }
+    );
+
+})();
+
+</script>
+
+
+<!-- =========================================================
+     FIRESTORE MARKETPLACE
+========================================================= -->
+
+<script type="module">
+
+import {
+
+    db
+
+} from "./firebase.js";
+
+
+import {
+
+    collection,
+    onSnapshot
+
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const makeFilter =
+    document.getElementById(
+        "makeFilter"
+    );
+
+
+const modelFilter =
+    document.getElementById(
+        "modelFilter"
+    );
+
+
+const yearFilter =
+    document.getElementById(
+        "yearFilter"
+    );
+
+
+const fuelFilter =
+    document.getElementById(
+        "fuelFilter"
+    );
+
+
+const transmissionFilter =
+    document.getElementById(
+        "transmissionFilter"
+    );
+
+
+const bodyFilter =
+    document.getElementById(
+        "bodyFilter"
+    );
+
+
+const locationFilter =
+    document.getElementById(
+        "locationFilter"
+    );
+
+
+const sortFilter =
+    document.getElementById(
+        "sortFilter"
+    );
+
+
+const minPrice =
+    document.getElementById(
+        "minPrice"
+    );
+
+
+const maxPrice =
+    document.getElementById(
+        "maxPrice"
+    );
+
+
+const mileageFilter =
+    document.getElementById(
+        "mileageFilter"
+    );
+
+
+const conditionFilter =
+    document.getElementById(
+        "conditionFilter"
+    );
+
+
+const clearFilters =
+    document.getElementById(
+        "clearFilters"
+    );
+
+
+const searchButton =
+    document.getElementById(
+        "searchButton"
+    );
+
+
+const vehicleGrid =
+    document.getElementById(
+        "vehicleGrid"
+    );
+
+
+const featuredGrid =
+    document.getElementById(
+        "featuredGrid"
+    );
+
+
+const pagination =
+    document.getElementById(
+        "pagination"
+    );
+
+
+const resultsInfo =
+    document.getElementById(
+        "resultsInfo"
+    );
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let allVehicles = [];
+
+let availablePage = 1;
+
+const PER_PAGE = 8;
+
+const CURRENT_YEAR =
+    new Date().getFullYear();
+
+const MIN_YEAR = 1990;
+
+
+/* =========================================================
+   FIRESTORE LISTENER
+========================================================= */
+
+function startMarketplace(){
+
+    const vehiclesRef =
+        collection(
+            db,
+            "vehicles"
+        );
+
+
+    onSnapshot(
+
+        vehiclesRef,
+
+        snapshot => {
+
+            allVehicles =
+                snapshot.docs.map(
+                    documentSnap => ({
+
+                        id:
+                            documentSnap.id,
+
+                        ...documentSnap.data()
+
+                    })
+                );
+
+
+            populateMakeFilter();
+
+            populateYearFilter();
+
+            populateModelFilter();
+
+            renderFeatured();
+
+            renderAll();
+
+        },
+
+        error => {
+
+            console.error(
+                "Firestore marketplace error:",
+                error
+            );
+
+
+            vehicleGrid.innerHTML = `
+
+                <div
+                    class="empty"
+                    style="grid-column:1/-1;"
+                >
+
+                    <div class="empty-icon">
+                        ⚠️
+                    </div>
+
+                    <strong>
+                        Could not load vehicles
+                    </strong>
+
+                    <span>
+                        ${escapeHTML(
+                            error.message
+                            ||
+                            "Firestore access error."
+                        )}
+                    </span>
+
+                </div>
+
+            `;
+
+
+            featuredGrid.innerHTML = `
+
+                <div class="featured-empty">
+                    Could not load featured vehicles.
+                </div>
+
+            `;
+
+
+            resultsInfo.textContent =
+                "Unable to load";
+
+        }
+
+    );
+
+}
+
+
+/* =========================================================
+   ACTIVE VEHICLES ONLY
+========================================================= */
+
+function getActiveVehicles(){
+
+    return allVehicles.filter(
+        vehicle => {
+
+            const status =
+                String(
+                    vehicle.status
+                    ||
+                    "pending"
+                )
+                .trim()
+                .toLowerCase();
+
+
+            return status === "active";
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FEATURED
+========================================================= */
+
+function isFeatured(
+    vehicle
+){
+
+    return (
+
+        vehicle.isFeatured === true
+
+        ||
+
+        String(
+            vehicle.isFeatured
+            ||
+            ""
+        )
+        .trim()
+        .toLowerCase()
+        ===
+        "true"
+
+    );
+
+}
+
+
+/* =========================================================
+   MAKE FILTER
+========================================================= */
+
+function populateMakeFilter(){
+
+    const current =
+        makeFilter.value;
+
+
+    const makes =
+        [
+            ...new Set(
+                getActiveVehicles()
+                    .map(
+                        vehicle =>
+                            String(
+                                vehicle.make
+                                ||
+                                ""
+                            )
+                            .trim()
+                    )
+                    .filter(Boolean)
+            )
+        ]
+        .sort(
+            (
+                a,
+                b
+            ) =>
+                a.localeCompare(
+                    b
+                )
+        );
+
+
+    makeFilter.innerHTML = `
+
+        <option value="">
+            All Makes
+        </option>
+
+        ${
+            makes
+                .map(
+                    make => `
+
+                        <option
+                            value="${escapeAttribute(
+                                make
+                            )}"
+                        >
+                            ${escapeHTML(
+                                make
+                            )}
+                        </option>
+
+                    `
+                )
+                .join("")
+        }
+
+    `;
+
+
+    if(
+        makes.includes(
+            current
+        )
+    ){
+
+        makeFilter.value =
+            current;
+
+    }
+
+}
+
+
+/* =========================================================
+   MODEL FILTER
+========================================================= */
+
+function populateModelFilter(){
+
+    const current =
+        modelFilter.value;
+
+
+    const selectedMake =
+        makeFilter.value;
+
+
+    let source =
+        getActiveVehicles();
+
+
+    if(
+        selectedMake
+    ){
+
+        source =
+            source.filter(
+                vehicle =>
+                    sameText(
+                        vehicle.make,
+                        selectedMake
+                    )
+            );
+
+    }
+
+
+    const models =
+        [
+            ...new Set(
+                source
+                    .map(
+                        vehicle =>
+                            String(
+                                vehicle.model
+                                ||
+                                ""
+                            )
+                            .trim()
+                    )
+                    .filter(Boolean)
+            )
+        ]
+        .sort(
+            (
+                a,
+                b
+            ) =>
+                a.localeCompare(
+                    b
+                )
+        );
+
+
+    modelFilter.innerHTML = `
+
+        <option value="">
+            All Models
+        </option>
+
+        ${
+            models
+                .map(
+                    model => `
+
+                        <option
+                            value="${escapeAttribute(
+                                model
+                            )}"
+                        >
+                            ${escapeHTML(
+                                model
+                            )}
+                        </option>
+
+                    `
+                )
+                .join("")
+        }
+
+    `;
+
+
+    if(
+        models.includes(
+            current
+        )
+    ){
+
+        modelFilter.value =
+            current;
+
+    }
+
+}
+
+
+/* =========================================================
+   YEAR FILTER
+========================================================= */
+
+function populateYearFilter(){
+
+    const current =
+        yearFilter.value;
+
+
+    const years = [];
+
+
+    /*
+       Always show the full year
+       range regardless of database data.
+    */
+
+    for(
+        let year =
+            CURRENT_YEAR;
+        year >= MIN_YEAR;
+        year--
+    ){
+
+        years.push(
+            year
+        );
+
+    }
+
+
+    yearFilter.innerHTML = `
+
+        <option value="">
+            Any Year
+        </option>
+
+        ${
+            years
+                .map(
+                    year => `
+
+                        <option value="${year}">
+                            ${year}
+                        </option>
+
+                    `
+                )
+                .join("")
+        }
+
+    `;
+
+
+    if(
+        years
+            .map(
+                String
+            )
+            .includes(
+                current
+            )
+    ){
+
+        yearFilter.value =
+            current;
+
+    }
+
+}
+
+
+/* =========================================================
+   FILTER ACTIVE VEHICLES
+========================================================= */
+
+function filteredVehicles(){
+
+    const search =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    const make =
+        makeFilter.value;
+
+
+    const model =
+        modelFilter.value;
+
+
+    const year =
+        yearFilter.value;
+
+
+    const fuel =
+        fuelFilter.value;
+
+
+    const transmission =
+        transmissionFilter.value;
+
+
+    const body =
+        bodyFilter.value;
+
+
+    const location =
+        locationFilter.value;
+
+
+    const condition =
+        conditionFilter.value;
+
+
+    const hasMinPrice =
+        minPrice.value !== "";
+
+
+    const hasMaxPrice =
+        maxPrice.value !== "";
+
+
+    const minimum =
+        Number(
+            minPrice.value
+        );
+
+
+    const maximum =
+        Number(
+            maxPrice.value
+        );
+
+
+    const hasMileage =
+        mileageFilter.value !== "";
+
+
+    const maximumMileage =
+        Number(
+            mileageFilter.value
+        );
+
+
+    return getActiveVehicles()
+        .filter(
+            vehicle => {
+
+                const makeText =
+                    String(
+                        vehicle.make
+                        ||
+                        ""
+                    )
+                    .toLowerCase();
+
+
+                const modelText =
+                    String(
+                        vehicle.model
+                        ||
+                        ""
+                    )
+                    .toLowerCase();
+
+
+                const titleText =
+                    String(
+                        vehicle.title
+                        ||
+                        ""
+                    )
+                    .toLowerCase();
+
+
+                const locationText =
+                    String(
+                        vehicle.location
+                        ||
+                        ""
+                    )
+                    .toLowerCase();
+
+
+                const sellerText =
+                    String(
+                        vehicle.seller
+                        ||
+                        ""
+                    )
+                    .toLowerCase();
+
+
+                const searchable =
+                    [
+                        makeText,
+                        modelText,
+                        titleText,
+                        locationText,
+                        sellerText
+                    ]
+                    .join(" ");
+
+
+                if(
+                    search
+                    &&
+                    !searchable.includes(
+                        search
+                    )
+                ){
+
+                    return false;
+
+                }
+
+
+                if(
+                    make
+                    &&
+                    !sameText(
+                        vehicle.make,
+                        make
+                    )
+                ){
+
+                    return false;
+
+                }
+
+
+                if(
+                    model
+                    &&
+                    !sameText(
+                        vehicle.model,
+                        model
+                    )
+                ){
+
+                    return false;
+
+                }
+
+
+                /*
+                   YEAR FIX
+
+                   Firestore number/string both work.
+                */
+
+                if(
+                    year
+                ){
+
+                    const vehicleYear =
+                        Number(
+                            vehicle.year
+                        );
+
+
+                    const selectedYear =
+                        Number(
+                            year
+                        );
+
+
+                    if(
+                        !Number.isFinite(
+                            vehicleYear
+                        )
+                        ||
+                        vehicleYear !==
+                            selectedYear
+                    ){
+
+                        return false;
+
+                    }
+
+                }
+
+
+                if(
+                    fuel
+                    &&
+                    !sameText(
+                        vehicle.fuel,
+                        fuel
+                    )
+                ){
+
+                    return false;
+
+                }
+
+
+                if(
+                    transmission
+                    &&
+                    !sameText(
+                        vehicle.transmission,
+                        transmission
+                    )
+                ){
+
+                    return false;
+
+                }
+
+
+                if(
+                    body
+                    &&
+                    !sameText(
+                        vehicle.body,
+                        body
+                    )
+                ){
+
+                    return false;
+
+                }
+
+
+                if(
+                    location
+                    &&
+                    !sameText(
+                        vehicle.location,
+                        location
+                    )
+                ){
+
+                    return false;
+
+                }
+
+
+                if(
+                    condition
+                    &&
+                    !sameText(
+                        vehicle.condition,
+                        condition
+                    )
+                ){
+
+                    return false;
+
+                }
+
+
+                const price =
+                    Number(
+                        vehicle.price
+                        ||
+                        0
+                    );
+
+
+                if(
+                    hasMinPrice
+                    &&
+                    price <
+                        minimum
+                ){
+
+                    return false;
+
+                }
+
+
+                if(
+                    hasMaxPrice
+                    &&
+                    price >
+                        maximum
+                ){
+
+                    return false;
+
+                }
+
+
+                const mileage =
+                    Number(
+                        vehicle.mileage
+                        ||
+                        0
+                    );
+
+
+                if(
+                    hasMileage
+                    &&
+                    mileage >
+                        maximumMileage
+                ){
+
+                    return false;
+
+                }
+
+
+                return true;
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+function sortVehicles(
+    vehicles
+){
+
+    const sorted =
+        [
+            ...vehicles
+        ];
+
+
+    const sort =
+        sortFilter.value;
+
+
+    sorted.sort(
+        (
+            a,
+            b
+        ) => {
+
+            if(
+                sort ===
+                "featuredNewest"
+            ){
+
+                const aFeatured =
+                    isFeatured(
+                        a
+                    )
+                    ? 1
+                    : 0;
+
+
+                const bFeatured =
+                    isFeatured(
+                        b
+                    )
+                    ? 1
+                    : 0;
+
+
+                if(
+                    aFeatured !==
+                    bFeatured
+                ){
+
+                    return (
+                        bFeatured
+                        -
+                        aFeatured
+                    );
+
+                }
+
+
+                return (
+                    timestampValue(
+                        b.createdAt
+                    )
+                    -
+                    timestampValue(
+                        a.createdAt
+                    )
+                );
+
+            }
+
+
+            if(
+                sort ===
+                "priceLow"
+            ){
+
+                return (
+                    Number(
+                        a.price
+                        ||
+                        0
+                    )
+                    -
+                    Number(
+                        b.price
+                        ||
+                        0
+                    )
+                );
+
+            }
+
+
+            if(
+                sort ===
+                "priceHigh"
+            ){
+
+                return (
+                    Number(
+                        b.price
+                        ||
+                        0
+                    )
+                    -
+                    Number(
+                        a.price
+                        ||
+                        0
+                    )
+                );
+
+            }
+
+
+            if(
+                sort ===
+                "mileageLow"
+            ){
+
+                return (
+                    Number(
+                        a.mileage
+                        ||
+                        0
+                    )
+                    -
+                    Number(
+                        b.mileage
+                        ||
+                        0
+                    )
+                );
+
+            }
+
+
+            if(
+                sort ===
+                "yearHigh"
+            ){
+
+                return (
+                    Number(
+                        b.year
+                        ||
+                        0
+                    )
+                    -
+                    Number(
+                        a.year
+                        ||
+                        0
+                    )
+                );
+
+            }
+
+
+            return (
+                timestampValue(
+                    b.createdAt
+                )
+                -
+                timestampValue(
+                    a.createdAt
+                )
+            );
+
+        }
+    );
+
+
+    return sorted;
+
+}
+
+
+/* =========================================================
+   FEATURED RENDER
+========================================================= */
+
+function renderFeatured(){
+
+    const featured =
+        getActiveVehicles()
+            .filter(
+                isFeatured
+            )
+            .sort(
+                (
+                    a,
+                    b
+                ) =>
+                    timestampValue(
+                        b.createdAt
+                    )
+                    -
+                    timestampValue(
+                        a.createdAt
+                    )
+            )
+            .slice(
+                0,
+                6
+            );
+
+
+    if(
+        featured.length ===
+        0
+    ){
+
+        featuredGrid.innerHTML = `
+
+            <div class="featured-empty">
+
+                No paid / featured vehicles are available right now.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    featuredGrid.innerHTML =
+        featured
+            .map(
+                featuredCardHTML
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   FEATURED CARD
+========================================================= */
+
+function featuredCardHTML(
+    vehicle
+){
+
+    const title =
+        getTitle(
+            vehicle
+        );
+
+
+    const image =
+        getMainImage(
+            vehicle
+        );
+
+
+    const imageHTML =
+        image
+        ?
+
+        `
+
+            <img
+                src="${escapeAttribute(
+                    image
+                )}"
+                alt="${escapeAttribute(
+                    title
+                )}"
+                loading="lazy"
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='flex';
+                "
+            >
+
+            <div
+                class="featured-fallback"
+                style="
+                    display:none;
+                    width:100%;
+                    height:100%;
+                    align-items:center;
+                    justify-content:center;
+                "
+            >
+                🚘
+            </div>
+
+        `
+
+        :
+
+        `
+
+            <div class="featured-fallback">
+                🚘
+            </div>
+
+        `;
+
+
+    return `
+
+        <article class="featured-card">
+
+
+            <div class="featured-image">
+
+                ${imageHTML}
+
+
+                <div class="featured-badge">
+                    ★ FEATURED
+                </div>
+
+            </div>
+
+
+            <div class="featured-body">
+
+
+                <div class="featured-title">
+
+                    ${escapeHTML(
+                        title
+                    )}
+
+                </div>
+
+
+                <div class="featured-price">
+
+                    ${formatPrice(
+                        vehicle.price
+                    )}
+
+                </div>
+
+
+                <div class="featured-meta">
+
+
+                    <span>
+                        ${escapeHTML(
+                            normaliseYear(
+                                vehicle.year
+                            )
+                        )}
+                    </span>
+
+
+                    <span>
+                        ${escapeHTML(
+                            formatMileage(
+                                vehicle.mileage
+                            )
+                        )}
+                    </span>
+
+
+                    <span>
+                        ${escapeHTML(
+                            vehicle.fuel
+                            ||
+                            "—"
+                        )}
+                    </span>
+
+
+                    <span>
+                        ${escapeHTML(
+                            vehicle.location
+                            ||
+                            "Sri Lanka"
+                        )}
+                    </span>
+
+
+                </div>
+
+
+                <a
+                    href="vehicle.html?vehicle=${encodeURIComponent(
+                        vehicle.id
+                    )}"
+                    class="featured-view"
+                >
+                    View Details →
+                </a>
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   RENDER ALL
+========================================================= */
+
+function renderAll(){
+
+    const available =
+        sortVehicles(
+            filteredVehicles()
+        );
+
+
+    const pages =
+        totalPages(
+            available.length
+        );
+
+
+    if(
+        availablePage >
+        pages
+    ){
+
+        availablePage =
+            pages;
+
+    }
+
+
+    const visible =
+        getPageItems(
+            available,
+            availablePage
+        );
+
+
+    renderAvailable(
+        visible,
+        available.length
+    );
+
+
+    renderPagination(
+        pagination,
+        available.length,
+        availablePage,
+        page => {
+
+            availablePage =
+                page;
+
+
+            renderAll();
+
+
+            window.scrollTo({
+
+                top:0,
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   AVAILABLE RENDER
+========================================================= */
+
+function renderAvailable(
+    vehicles,
+    total
+){
+
+    resultsInfo.textContent =
+        total === 0
+            ? "No vehicles found"
+            : `${total} vehicle${total === 1 ? "" : "s"}`;
+
+
+    if(
+        vehicles.length ===
+        0
+    ){
+
+        vehicleGrid.innerHTML = `
+
+            <div
+                class="empty"
+                style="grid-column:1/-1;"
+            >
+
+                <div class="empty-icon">
+                    🔎
+                </div>
+
+
+                <strong>
+                    No available vehicles found
+                </strong>
+
+
+                <span>
+                    Try changing your search or filters.
+                </span>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    vehicleGrid.innerHTML =
+        vehicles
+            .map(
+                vehicleCardHTML
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   VEHICLE CARD
+========================================================= */
+
+function vehicleCardHTML(
+    vehicle
+){
+
+    const title =
+        getTitle(
+            vehicle
+        );
+
+
+    const image =
+        getMainImage(
+            vehicle
+        );
+
+
+    const photoCount =
+        getPhotoCount(
+            vehicle
+        );
+
+
+    const imageHTML =
+        image
+        ?
+
+        `
+
+            <img
+                src="${escapeAttribute(
+                    image
+                )}"
+                alt="${escapeAttribute(
+                    title
+                )}"
+                loading="lazy"
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='block';
+                "
+            >
+
+            <span
+                class="card-icon"
+                style="display:none;"
+            >
+                🚗
+            </span>
+
+        `
+
+        :
+
+        `
+
+            <span class="card-icon">
+                🚗
+            </span>
+
+        `;
+
+
+    return `
+
+        <article class="vehicle-card">
+
+
+            <div class="card-image">
+
+
+                <span
+                    class="status-badge available"
+                >
+                    AVAILABLE
+                </span>
+
+
+                ${
+                    isFeatured(
+                        vehicle
+                    )
+                    ?
+                    `
+                        <span class="featured-card-badge">
+                            ★ FEATURED
+                        </span>
+                    `
+                    :
+                    ""
+                }
+
+
+                ${imageHTML}
+
+
+                ${
+                    photoCount > 0
+                    ?
+                    `
+                        <span class="photo-count">
+                            📷 ${photoCount}
+                        </span>
+                    `
+                    :
+                    ""
+                }
+
+
+            </div>
+
+
+            <div class="card-body">
+
+
+                <div class="card-title">
+
+                    ${escapeHTML(
+                        title
+                    )}
+
+                </div>
+
+
+                <div class="card-price">
+
+                    ${formatPrice(
+                        vehicle.price
+                    )}
+
+                </div>
+
+
+                <div class="card-meta">
+
+
+                    <span>
+                        ${escapeHTML(
+                            normaliseYear(
+                                vehicle.year
+                            )
+                        )}
+                    </span>
+
+
+                    <span>
+                        ${escapeHTML(
+                            formatMileage(
+                                vehicle.mileage
+                            )
+                        )}
+                    </span>
+
+
+                    <span>
+                        ${escapeHTML(
+                            vehicle.fuel
+                            ||
+                            "—"
+                        )}
+                    </span>
+
+
+                    <span>
+                        ${escapeHTML(
+                            vehicle.transmission
+                            ||
+                            "—"
+                        )}
+                    </span>
+
+
+                </div>
+
+
+                <div class="card-location">
+
+                    📍
+                    ${escapeHTML(
+                        vehicle.location
+                        ||
+                        "Sri Lanka"
+                    )}
+
+                </div>
+
+
+                <a
+                    href="vehicle.html?vehicle=${encodeURIComponent(
+                        vehicle.id
+                    )}"
+                    class="view-btn"
+                >
+
+                    View Details →
+
+                </a>
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   MAIN IMAGE
+========================================================= */
+
+function getMainImage(
+    vehicle
+){
+
+    /*
+       Photo 1 always has priority.
+       image is only a fallback.
+    */
+
+    if(
+        Array.isArray(
+            vehicle.photoUrls
+        )
+        &&
+        vehicle.photoUrls.length
+    ){
+
+        const first =
+            String(
+                vehicle.photoUrls[0]
+                ||
+                ""
+            )
+            .trim();
+
+
+        if(
+            first
+        ){
+
+            return first;
+
+        }
+
+    }
+
+
+    if(
+        vehicle.image
+    ){
+
+        return String(
+            vehicle.image
+        )
+        .trim();
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =========================================================
+   PHOTO COUNT
+========================================================= */
+
+function getPhotoCount(
+    vehicle
+){
+
+    if(
+        Array.isArray(
+            vehicle.photoUrls
+        )
+    ){
+
+        return vehicle.photoUrls
+            .filter(Boolean)
+            .length;
+
+    }
+
+
+    return getMainImage(
+        vehicle
+    )
+    ? 1
+    : 0;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+function getTitle(
+    vehicle
+){
+
+    return (
+
+        String(
+            vehicle.title
+            ||
+            ""
+        )
+        .trim()
+
+        ||
+
+        `${vehicle.make || ""} ${
+            vehicle.model || ""
+        }`
+        .trim()
+
+        ||
+
+        "Vehicle"
+
+    );
+
+}
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+function normaliseYear(
+    value
+){
+
+    if(
+        value === null
+        ||
+        value === undefined
+        ||
+        value === ""
+    ){
+
+        return "—";
+
+    }
+
+
+    const number =
+        Number(
+            value
+        );
+
+
+    if(
+        Number.isFinite(
+            number
+        )
+    ){
+
+        return String(
+            Math.trunc(
+                number
+            )
+        );
+
+    }
+
+
+    return String(
+        value
+    );
+
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+function totalPages(
+    totalItems
+){
+
+    return Math.max(
+        1,
+        Math.ceil(
+            totalItems /
+            PER_PAGE
+        )
+    );
+
+}
+
+
+function getPageItems(
+    items,
+    page
+){
+
+    const start =
+        (
+            page - 1
+        )
+        *
+        PER_PAGE;
+
+
+    return items.slice(
+        start,
+        start + PER_PAGE
+    );
+
+}
+
+
+function renderPagination(
+    container,
+    totalItems,
+    currentPage,
+    callback
+){
+
+    if(
+        totalItems <=
+        PER_PAGE
+    ){
+
+        container.innerHTML =
+            "";
+
+        return;
+
+    }
+
+
+    const pages =
+        totalPages(
+            totalItems
+        );
+
+
+    let html = `
+
+        <button
+            type="button"
+            class="page-btn"
+            ${
+                currentPage === 1
+                ? "disabled"
+                : ""
+            }
+            data-page="${
+                currentPage - 1
+            }"
+        >
+            ←
+        </button>
+
+    `;
+
+
+    let start =
+        Math.max(
+            1,
+            currentPage - 3
+        );
+
+
+    let end =
+        Math.min(
+            pages,
+            start + 6
+        );
+
+
+    if(
+        end - start <
+        6
+    ){
+
+        start =
+            Math.max(
+                1,
+                end - 6
+            );
+
+    }
+
+
+    for(
+        let i=start;
+        i<=end;
+        i++
+    ){
+
+        html += `
+
+            <button
+                type="button"
+                class="
+                    page-btn
+                    ${
+                        i === currentPage
+                        ? "active"
+                        : ""
+                    }
+                "
+                data-page="${i}"
+            >
+                ${i}
+            </button>
+
+        `;
+
+    }
+
+
+    html += `
+
+        <button
+            type="button"
+            class="page-btn"
+            ${
+                currentPage === pages
+                ? "disabled"
+                : ""
+            }
+            data-page="${
+                currentPage + 1
+            }"
+        >
+            →
+        </button>
+
+    `;
+
+
+    container.innerHTML =
+        html;
+
+
+    container
+        .querySelectorAll(
+            "[data-page]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        if(
+                            button.disabled
+                        ){
+
+                            return;
+
+                        }
+
+
+                        callback(
+                            Number(
+                                button.dataset.page
+                            )
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function timestampValue(
+    value
+){
+
+    if(
+        !value
+    ){
+
+        return 0;
+
+    }
+
+
+    if(
+        typeof value.toMillis ===
+        "function"
+    ){
+
+        return value.toMillis();
+
+    }
+
+
+    if(
+        value
+        &&
+        typeof value.seconds ===
+        "number"
+    ){
+
+        return (
+            value.seconds *
+            1000
+        );
+
+    }
+
+
+    if(
+        typeof value ===
+        "number"
+    ){
+
+        return value;
+
+    }
+
+
+    return 0;
+
+}
+
+
+function normalise(
+    value
+){
+
+    return String(
+        value
+        ||
+        ""
+    )
+    .trim()
+    .toLowerCase();
+
+}
+
+
+function sameText(
+    a,
+    b
+){
+
+    return (
+        normalise(a)
+        ===
+        normalise(b)
+    );
+
+}
+
+
+function formatPrice(
+    value
+){
+
+    return (
+        "Rs. "
+        +
+        Number(
+            value
+            ||
+            0
+        )
+        .toLocaleString(
+            "en-LK"
+        )
+    );
+
+}
+
+
+function formatMileage(
+    value
+){
+
+    return (
+        Number(
+            value
+            ||
+            0
+        )
+        .toLocaleString(
+            "en-LK"
+        )
+        +
+        " km"
+    );
+
+}
+
+
+function escapeHTML(
+    value
+){
+
+    return String(
+        value
+        ??
+        ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+function escapeAttribute(
+    value
+){
+
+    return escapeHTML(
+        value
+    );
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetPage(){
+
+    availablePage =
+        1;
+
+}
+
+
+/* =========================================================
+   EVENTS
+========================================================= */
+
+searchButton.addEventListener(
+    "click",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+searchInput.addEventListener(
+    "input",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+makeFilter.addEventListener(
+    "change",
+    function(){
+
+        populateModelFilter();
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+modelFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+yearFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+fuelFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+transmissionFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+bodyFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+locationFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+sortFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+conditionFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+minPrice.addEventListener(
+    "input",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+maxPrice.addEventListener(
+    "input",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+mileageFilter.addEventListener(
+    "change",
+    function(){
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+/* =========================================================
+   CLEAR FILTERS
+========================================================= */
+
+clearFilters.addEventListener(
+    "click",
+    function(){
+
+        searchInput.value =
+            "";
+
+        makeFilter.value =
+            "";
+
+        modelFilter.value =
+            "";
+
+        yearFilter.value =
+            "";
+
+        fuelFilter.value =
+            "";
+
+        transmissionFilter.value =
+            "";
+
+        bodyFilter.value =
+            "";
+
+        locationFilter.value =
+            "";
+
+        sortFilter.value =
+            "featuredNewest";
+
+        minPrice.value =
+            "";
+
+        maxPrice.value =
+            "";
+
+        mileageFilter.value =
+            "";
+
+        conditionFilter.value =
+            "";
+
+
+        populateModelFilter();
+
+        resetPage();
+
+        renderAll();
+
+    }
+);
+
+
+/* =========================================================
+   URL PARAMETERS
+========================================================= */
+
+function readURLParameters(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const search =
+        params.get(
+            "search"
+        );
+
+
+    if(
+        search
+    ){
+
+        searchInput.value =
+            search;
+
+    }
+
+
+    const make =
+        params.get(
+            "make"
+        );
+
+
+    const model =
+        params.get(
+            "model"
+        );
+
+
+    const year =
+        params.get(
+            "year"
+        );
+
+
+    const fuel =
+        params.get(
+            "fuel"
+        );
+
+
+    const transmission =
+        params.get(
+            "transmission"
+        );
+
+
+    const body =
+        params.get(
+            "body"
+        );
+
+
+    const location =
+        params.get(
+            "location"
+        );
+
+
+    const condition =
+        params.get(
+            "condition"
+        );
+
+
+    const budget =
+        params.get(
+            "budget"
+        );
+
+
+    if(
+        make
+    ){
+
+        makeFilter.value =
+            make;
+
+    }
+
+
+    populateModelFilter();
+
+
+    if(
+        model
+    ){
+
+        modelFilter.value =
+            model;
+
+    }
+
+
+    if(
+        year
+    ){
+
+        yearFilter.value =
+            year;
+
+    }
+
+
+    if(
+        fuel
+    ){
+
+        fuelFilter.value =
+            fuel;
+
+    }
+
+
+    if(
+        transmission
+    ){
+
+        transmissionFilter.value =
+            transmission;
+
+    }
+
+
+    if(
+        body
+    ){
+
+        bodyFilter.value =
+            body;
+
+    }
+
+
+    if(
+        location
+    ){
+
+        locationFilter.value =
+            location;
+
+    }
+
+
+    if(
+        condition
+    ){
+
+        conditionFilter.value =
+            condition;
+
+    }
+
+
+    /*
+       Home page budget support.
+
+       Examples:
+       4-5
+       5-7
+       7+
+    */
+
+    if(
+        budget
+    ){
+
+        const numbers =
+            budget.match(
+                /[\d.]+/g
+            );
+
+
+        if(
+            numbers
+            &&
+            numbers.length
+        ){
+
+            const values =
+                numbers.map(
+                    value =>
+                        Number(
+                            value
+                        )
+                );
+
+
+            if(
+                values.length >=
+                2
+            ){
+
+                minPrice.value =
+                    values[0]
+                    *
+                    1000000;
+
+
+                maxPrice.value =
+                    values[1]
+                    *
+                    1000000;
+
+            }
+            else
+            if(
+                budget
+                    .toLowerCase()
+                    .includes(
+                        "under"
+                    )
+            ){
+
+                maxPrice.value =
+                    values[0]
+                    *
+                    1000000;
+
+            }
+            else
+            if(
+                budget.includes(
+                    "+"
+                )
+            ){
+
+                minPrice.value =
+                    values[0]
+                    *
+                    1000000;
+
+            }
+
+        }
+
+    }
+
+
+    resetPage();
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+startMarketplace();
+
+
+readURLParameters();
+
+</script>
+
+</body>
+</html>
+```

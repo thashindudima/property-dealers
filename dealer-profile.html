@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dealer Profile | PROPERTY DEALERS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<script>
+(function(){
+
+    if(localStorage.getItem("pd_theme") === "dark"){
+        document.documentElement.classList.add("dark");
+    }
+
+})();
+</script>
+
+
+<style>
+
+/* =========================================================
+   THEME
+========================================================= */
+
+:root{
+
+    --bg:#f5f3fb;
+
+    --surface:#ffffff;
+
+    --surface2:#faf9fd;
+
+    --text:#17131f;
+
+    --muted:#756e82;
+
+    --border:#e7e1ef;
+
+    --purple:#7c3aed;
+
+    --purple2:#9b63ff;
+
+    --purple-light:
+        rgba(124,58,237,.10);
+
+    --green:#16a34a;
+
+    --red:#ef4444;
+
+    --blue:#2563eb;
+
+    --shadow:
+        0 18px 50px
+        rgba(67,45,105,.09);
+
+}
+
+html.dark{
+
+    --bg:#09080e;
+
+    --surface:#12101a;
+
+    --surface2:#17141f;
+
+    --text:#f8f5ff;
+
+    --muted:#aaa2b8;
+
+    --border:#2b2635;
+
+    --purple:#9b63ff;
+
+    --purple2:#b98aff;
+
+    --purple-light:
+        rgba(155,99,255,.13);
+
+    --green:#22c55e;
+
+    --red:#ff5c68;
+
+    --blue:#60a5fa;
+
+    --shadow:
+        0 25px 65px
+        rgba(0,0,0,.50);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(124,58,237,.10),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 95% 20%,
+            rgba(0,200,255,.06),
+            transparent 23%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+}
+
+button,
+input{
+
+    font-family:inherit;
+
+}
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    width:100%;
+
+    height:74px;
+
+    padding:
+        0 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:var(--surface);
+
+    border-bottom:
+        1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+
+.logo{
+
+    color:var(--text);
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:-.6px;
+
+}
+
+
+.logo span{
+
+    color:var(--purple);
+
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+
+.nav-links a{
+
+    min-width:80px;
+
+    height:40px;
+
+    padding:
+        0 13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:var(--purple);
+
+    background:var(--purple-light);
+
+}
+
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+}
+
+
+.theme-btn{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    background:var(--surface2);
+
+    color:var(--text);
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+.dashboard-btn{
+
+    height:42px;
+
+    padding:
+        0 15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
+
+    width:min(
+        1080px,
+        92%
+    );
+
+    margin:auto;
+
+    padding:
+        42px 0 80px;
+
+}
+
+
+.page-header{
+
+    margin-bottom:25px;
+
+}
+
+
+.eyebrow{
+
+    color:var(--purple);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:9px;
+
+}
+
+
+.page-header h1{
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            48px
+        );
+
+    line-height:1;
+
+    letter-spacing:-1.8px;
+
+    margin-bottom:10px;
+
+}
+
+
+.page-header p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message{
+
+    display:none;
+
+    margin-bottom:18px;
+
+    padding:
+        13px 15px;
+
+    border-radius:11px;
+
+    font-size:10px;
+
+    line-height:1.6;
+
+}
+
+
+.message.info{
+
+    display:block;
+
+    color:var(--purple);
+
+    background:
+        var(--purple-light);
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.message.success{
+
+    display:block;
+
+    color:var(--green);
+
+    background:
+        rgba(22,163,74,.08);
+
+    border:
+        1px solid rgba(22,163,74,.16);
+
+}
+
+
+.message.error{
+
+    display:block;
+
+    color:var(--red);
+
+    background:
+        rgba(239,68,68,.08);
+
+    border:
+        1px solid rgba(239,68,68,.16);
+
+}
+
+
+/* =========================================================
+   PROFILE GRID
+========================================================= */
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        330px
+        1fr;
+
+    gap:20px;
+
+    align-items:start;
+
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.profile-card{
+
+    padding:22px;
+
+    background:var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.profile-avatar{
+
+    width:110px;
+
+    height:110px;
+
+    margin:0 auto 15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    border-radius:50%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--purple-light),
+            var(--surface2)
+        );
+
+    border:
+        3px solid
+        rgba(124,58,237,.12);
+
+}
+
+
+.profile-avatar img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.profile-avatar span{
+
+    color:var(--purple);
+
+    font-size:35px;
+
+    font-weight:800;
+
+}
+
+
+.profile-name{
+
+    text-align:center;
+
+    font-size:16px;
+
+    font-weight:800;
+
+}
+
+
+.profile-email{
+
+    margin-top:5px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    word-break:break-word;
+
+}
+
+
+.profile-status{
+
+    margin:14px auto 0;
+
+    width:max-content;
+
+    padding:
+        6px 10px;
+
+    border-radius:50px;
+
+    color:var(--green);
+
+    background:
+        rgba(22,163,74,.10);
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+.profile-note{
+
+    margin-top:17px;
+
+    padding:12px;
+
+    border-radius:11px;
+
+    background:var(--surface2);
+
+    border:
+        1px solid var(--border);
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================================
+   SETTINGS CARD
+========================================================= */
+
+.settings-card{
+
+    padding:24px;
+
+    background:var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.card-title{
+
+    font-size:16px;
+
+    font-weight:800;
+
+    margin-bottom:17px;
+
+}
+
+
+.field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+
+}
+
+
+.field + .field{
+
+    margin-top:15px;
+
+}
+
+
+.field label{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+}
+
+
+.input{
+
+    width:100%;
+
+    height:45px;
+
+    padding:
+        0 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    outline:none;
+
+    background:var(--surface2);
+
+    color:var(--text);
+
+    font-size:11px;
+
+}
+
+
+.input:focus{
+
+    border-color:var(--purple);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(124,58,237,.08);
+
+}
+
+
+.input.readonly{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =========================================================
+   CONTACT OPTIONS
+========================================================= */
+
+.section-divider{
+
+    margin:25px 0 18px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.contact-help{
+
+    margin-top:-8px;
+
+    margin-bottom:15px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.6;
+
+}
+
+
+.contact-options{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+
+.contact-option{
+
+    position:relative;
+
+}
+
+
+.contact-option input{
+
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+
+.contact-label{
+
+    min-height:72px;
+
+    padding:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:var(--surface2);
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.contact-label:hover{
+
+    border-color:var(--purple);
+
+}
+
+
+.contact-option input:checked
++
+.contact-label{
+
+    border-color:var(--purple);
+
+    background:var(--purple-light);
+
+}
+
+
+.contact-icon{
+
+    width:36px;
+
+    height:36px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:var(--surface);
+
+    font-size:16px;
+
+}
+
+
+.contact-label strong{
+
+    display:block;
+
+    font-size:10px;
+
+    margin-bottom:3px;
+
+}
+
+
+.contact-label span{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:9px;
+
+    margin-top:25px;
+
+}
+
+
+.btn{
+
+    height:44px;
+
+    padding:
+        0 17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.btn-secondary{
+
+    background:var(--surface2);
+
+    color:var(--text);
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.btn-primary{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    color:#fff;
+
+    border:
+        1px solid var(--purple);
+
+}
+
+
+.btn-primary:disabled{
+
+    opacity:.55;
+
+    cursor:wait;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+
+    padding:60px 20px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .profile-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profile-card{
+
+        max-width:500px;
+
+        width:100%;
+
+        margin:auto;
+
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .navbar{
+
+        padding:0 4%;
+
+    }
+
+    .dashboard-btn{
+
+        display:none;
+
+    }
+
+    .page{
+
+        width:94%;
+
+        padding-top:28px;
+
+    }
+
+    .settings-card{
+
+        padding:19px;
+
+    }
+
+    .contact-options{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .actions{
+
+        flex-direction:column;
+
+    }
+
+    .actions .btn{
+
+        width:100%;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+   NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+        PROPERTY<span>DEALERS</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="search.html">
+            Vehicles
+        </a>
+
+        <a href="compare.html">
+            Compare
+        </a>
+
+        <a
+            href="dealer.html"
+            class="active"
+        >
+            Dealer
+        </a>
+
+    </div>
+
+
+    <div class="nav-actions">
+
+        <button
+            type="button"
+            id="themeBtn"
+            class="theme-btn"
+        >
+            ☾
+        </button>
+
+
+        <a
+            href="dealer.html"
+            class="dashboard-btn"
+        >
+            Dashboard
+        </a>
+
+    </div>
+
+
+</nav>
+
+
+<!-- =========================================================
+   PAGE
+========================================================= -->
+
+<main class="page">
+
+
+    <header class="page-header">
+
+        <div class="eyebrow">
+            PROPERTY DEALERS / ACCOUNT
+        </div>
+
+
+        <h1>
+            Dealer Profile
+        </h1>
+
+
+        <p>
+            Manage your public contact preferences and account information.
+        </p>
+
+    </header>
+
+
+    <div
+        id="message"
+        class="message"
+    ></div>
+
+
+    <div
+        id="loading"
+        class="loading"
+    >
+        Loading your profile...
+    </div>
+
+
+    <div
+        id="profileContent"
+        class="profile-grid"
+        style="display:none;"
+    >
+
+
+        <!-- =================================================
+             PROFILE SUMMARY
+        ================================================== -->
+
+        <section class="profile-card">
+
+
+            <div
+                id="profileAvatar"
+                class="profile-avatar"
+            >
+
+                <span>
+                    D
+                </span>
+
+            </div>
+
+
+            <div
+                id="profileName"
+                class="profile-name"
+            >
+                Dealer
+            </div>
+
+
+            <div
+                id="profileEmail"
+                class="profile-email"
+            >
+                —
+            </div>
+
+
+            <div class="profile-status">
+                ACCOUNT ACTIVE
+            </div>
+
+
+            <div class="profile-note">
+
+                Your account email is used for authentication.
+                You can change your display name and seller
+                contact preferences below.
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             SETTINGS
+        ================================================== -->
+
+        <section class="settings-card">
+
+
+            <div class="card-title">
+                Account Information
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    DISPLAY NAME
+                </label>
+
+
+                <input
+                    id="displayName"
+                    class="input"
+                    type="text"
+                    maxlength="60"
+                    placeholder="Your name"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    GOOGLE ACCOUNT EMAIL
+                </label>
+
+
+                <input
+                    id="accountEmail"
+                    class="input readonly"
+                    type="email"
+                    readonly
+                >
+
+            </div>
+
+
+            <div class="section-divider"></div>
+
+
+            <div class="card-title">
+                Seller Contact Preferences
+            </div>
+
+
+            <div class="contact-help">
+
+                Choose which contact methods buyers can use
+                on your vehicle listings.
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    PHONE NUMBER
+                </label>
+
+
+                <input
+                    id="phoneNumber"
+                    class="input"
+                    type="tel"
+                    inputmode="tel"
+                    maxlength="20"
+                    placeholder="0771234567"
+                >
+
+            </div>
+
+
+            <div
+                class="contact-options"
+                style="margin-top:15px;"
+            >
+
+
+                <div class="contact-option">
+
+                    <input
+                        id="contactWhatsApp"
+                        type="checkbox"
+                    >
+
+
+                    <label
+                        for="contactWhatsApp"
+                        class="contact-label"
+                    >
+
+                        <div class="contact-icon">
+                            💬
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                WhatsApp
+                            </strong>
+
+                            <span>
+                                Buyers can message
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+                <div class="contact-option">
+
+                    <input
+                        id="contactPhone"
+                        type="checkbox"
+                    >
+
+
+                    <label
+                        for="contactPhone"
+                        class="contact-label"
+                    >
+
+                        <div class="contact-icon">
+                            📞
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Phone
+                            </strong>
+
+                            <span>
+                                Buyers can call
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+                <div class="contact-option">
+
+                    <input
+                        id="contactEmail"
+                        type="checkbox"
+                    >
+
+
+                    <label
+                        for="contactEmail"
+                        class="contact-label"
+                    >
+
+                        <div class="contact-icon">
+                            ✉
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Email
+                            </strong>
+
+                            <span>
+                                Buyers can email
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="actions">
+
+
+                <a
+                    href="dealer.html"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </a>
+
+
+                <button
+                    type="button"
+                    id="saveBtn"
+                    class="btn btn-primary"
+                >
+                    Save Changes
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+</main>
+
+
+<footer
+    style="
+        padding:25px;
+        border-top:1px solid var(--border);
+        text-align:center;
+        color:var(--muted);
+        font-size:10px;
+    "
+>
+
+    © 2026 PROPERTY DEALERS — Dealer Account
+
+</footer>
+
+
+<!-- =========================================================
+   THEME
+========================================================= -->
+
+<script>
+
+const themeBtn =
+    document.getElementById(
+        "themeBtn"
+    );
+
+
+function updateThemeButton(){
+
+    const dark =
+        document.documentElement
+            .classList
+            .contains("dark");
+
+
+    themeBtn.textContent =
+        dark
+            ? "☀"
+            : "☾";
+
+}
+
+
+updateThemeButton();
+
+
+themeBtn.addEventListener(
+    "click",
+    function(){
+
+        const dark =
+            document.documentElement
+                .classList
+                .contains("dark");
+
+
+        document.documentElement
+            .classList
+            .toggle("dark");
+
+
+        localStorage.setItem(
+            "pd_theme",
+            dark
+                ? "light"
+                : "dark"
+        );
+
+
+        updateThemeButton();
+
+    }
+);
+
+</script>
+
+
+<!-- =========================================================
+   FIREBASE PROFILE
+========================================================= -->
+
+<script type="module">
+
+import {
+
+    auth,
+    db,
+    onAuthStateChanged
+
+} from "./firebase.js";
+
+
+import {
+
+    doc,
+    getDoc,
+    setDoc,
+    serverTimestamp
+
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const loading =
+    document.getElementById(
+        "loading"
+    );
+
+
+const profileContent =
+    document.getElementById(
+        "profileContent"
+    );
+
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+
+const saveBtn =
+    document.getElementById(
+        "saveBtn"
+    );
+
+
+const profileAvatar =
+    document.getElementById(
+        "profileAvatar"
+    );
+
+
+const profileName =
+    document.getElementById(
+        "profileName"
+    );
+
+
+const profileEmail =
+    document.getElementById(
+        "profileEmail"
+    );
+
+
+const displayNameInput =
+    document.getElementById(
+        "displayName"
+    );
+
+
+const accountEmailInput =
+    document.getElementById(
+        "accountEmail"
+    );
+
+
+const phoneNumberInput =
+    document.getElementById(
+        "phoneNumber"
+    );
+
+
+const contactWhatsApp =
+    document.getElementById(
+        "contactWhatsApp"
+    );
+
+
+const contactPhone =
+    document.getElementById(
+        "contactPhone"
+    );
+
+
+const contactEmail =
+    document.getElementById(
+        "contactEmail"
+    );
+
+
+let currentUser =
+    null;
+
+
+let profileData =
+    null;
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    message.textContent =
+        text;
+
+
+    message.className =
+        "message "
+        +
+        type;
+
+}
+
+
+/* =========================================================
+   AUTH
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    async user => {
+
+        if(!user){
+
+            window.location.replace(
+                "login.html"
+            );
+
+            return;
+
+        }
+
+
+        currentUser =
+            user;
+
+
+        accountEmailInput.value =
+            user.email
+            ||
+            "";
+
+
+        await loadProfile();
+
+    }
+);
+
+
+/* =========================================================
+   LOAD PROFILE
+========================================================= */
+
+async function loadProfile(){
+
+    try{
+
+        const userRef =
+            doc(
+                db,
+                "users",
+                currentUser.uid
+            );
+
+
+        const snapshot =
+            await getDoc(
+                userRef
+            );
+
+
+        if(
+            snapshot.exists()
+        ){
+
+            profileData =
+                snapshot.data();
+
+        }
+        else{
+
+            profileData = {
+
+                displayName:
+                    currentUser.displayName
+                    ||
+                    "Dealer",
+
+                phoneNumber:
+                    "",
+
+                contactMethods: {
+
+                    whatsapp:false,
+
+                    phone:false,
+
+                    email:false
+
+                }
+
+            };
+
+
+            /*
+               Create a basic profile document.
+            */
+
+            await setDoc(
+                userRef,
+                {
+
+                    uid:
+                        currentUser.uid,
+
+                    email:
+                        currentUser.email
+                        ||
+                        "",
+
+                    displayName:
+                        profileData.displayName,
+
+                    phoneNumber:
+                        "",
+
+                    contactMethods:
+                        profileData.contactMethods,
+
+                    createdAt:
+                        serverTimestamp(),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+        }
+
+
+        populateProfile();
+
+
+        loading.style.display =
+            "none";
+
+
+        profileContent.style.display =
+            "grid";
+
+    }
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        showMessage(
+            error.message
+            ||
+            "Could not load your profile.",
+            "error"
+        );
+
+
+        loading.textContent =
+            "Could not load profile.";
+
+    }
+
+}
+
+
+/* =========================================================
+   POPULATE
+========================================================= */
+
+function populateProfile(){
+
+    const name =
+        profileData.displayName
+        ||
+        currentUser.displayName
+        ||
+        "Dealer";
+
+
+    profileName.textContent =
+        name;
+
+
+    profileEmail.textContent =
+        currentUser.email
+        ||
+        "";
+
+
+    displayNameInput.value =
+        name;
+
+
+    phoneNumberInput.value =
+        profileData.phoneNumber
+        ||
+        "";
+
+
+    const methods =
+        profileData.contactMethods
+        ||
+        {};
+
+
+    contactWhatsApp.checked =
+        Boolean(
+            methods.whatsapp
+        );
+
+
+    contactPhone.checked =
+        Boolean(
+            methods.phone
+        );
+
+
+    contactEmail.checked =
+        Boolean(
+            methods.email
+        );
+
+
+    const photo =
+        currentUser.photoURL;
+
+
+    if(photo){
+
+        profileAvatar.innerHTML = `
+
+            <img
+                src="${escapeAttribute(photo)}"
+                alt="Profile"
+            >
+
+        `;
+
+    }
+    else{
+
+        profileAvatar.innerHTML = `
+
+            <span>
+                ${
+                    name
+                        .trim()
+                        .charAt(0)
+                        .toUpperCase()
+                        ||
+                        "D"
+                }
+            </span>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+saveBtn.addEventListener(
+    "click",
+    async function(){
+
+        try{
+
+            const displayName =
+                displayNameInput.value
+                    .trim();
+
+
+            const phoneNumber =
+                phoneNumberInput.value
+                    .trim();
+
+
+            const contactMethods = {
+
+                whatsapp:
+                    contactWhatsApp.checked,
+
+                phone:
+                    contactPhone.checked,
+
+                email:
+                    contactEmail.checked
+
+            };
+
+
+            if(
+                !displayName
+            ){
+
+                throw new Error(
+                    "Please enter your display name."
+                );
+
+            }
+
+
+            if(
+                displayName.length
+                >
+                60
+            ){
+
+                throw new Error(
+                    "Display name is too long."
+                );
+
+            }
+
+
+            /*
+               One phone number is enough
+               for both Phone and WhatsApp.
+            */
+
+            if(
+                (
+                    contactMethods.whatsapp
+                    ||
+                    contactMethods.phone
+                )
+                &&
+                !phoneNumber
+            ){
+
+                throw new Error(
+                    "Enter a phone number because WhatsApp or Phone contact is enabled."
+                );
+
+            }
+
+
+            saveBtn.disabled =
+                true;
+
+
+            saveBtn.textContent =
+                "Saving...";
+
+
+            showMessage(
+                "Saving your profile...",
+                "info"
+            );
+
+
+            const userRef =
+                doc(
+                    db,
+                    "users",
+                    currentUser.uid
+                );
+
+
+            await setDoc(
+                userRef,
+                {
+
+                    uid:
+                        currentUser.uid,
+
+                    email:
+                        currentUser.email
+                        ||
+                        "",
+
+                    displayName,
+
+                    phoneNumber,
+
+                    contactMethods,
+
+                    updatedAt:
+                        serverTimestamp()
+
+                },
+                {
+                    merge:true
+                }
+            );
+
+
+            /*
+               Also update the Firebase Auth
+               display name.
+            */
+
+            try{
+
+                const {
+                    updateProfile
+                } = await import(
+                    "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js"
+                );
+
+
+                await updateProfile(
+                    currentUser,
+                    {
+
+                        displayName
+
+                    }
+                );
+
+            }
+            catch(authError){
+
+                console.warn(
+                    "Auth profile update skipped:",
+                    authError
+                );
+
+            }
+
+
+            profileData = {
+
+                ...profileData,
+
+                displayName,
+
+                phoneNumber,
+
+                contactMethods
+
+            };
+
+
+            populateProfile();
+
+
+            showMessage(
+                "Profile updated successfully.",
+                "success"
+            );
+
+
+            saveBtn.textContent =
+                "Saved";
+
+
+
+            setTimeout(
+                function(){
+
+                    saveBtn.disabled =
+                        false;
+
+                    saveBtn.textContent =
+                        "Save Changes";
+
+                },
+                1500
+            );
+
+        }
+        catch(error){
+
+            console.error(
+                error
+            );
+
+
+            showMessage(
+                error.message
+                ||
+                "Could not save profile.",
+                "error"
+            );
+
+
+            saveBtn.disabled =
+                false;
+
+            saveBtn.textContent =
+                "Save Changes";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeAttribute(
+    value
+){
+
+    return String(
+        value
+        ??
+        ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    );
+
+}
+
+</script>
+
+</body>
+</html>

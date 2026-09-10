@@ -1,0 +1,5514 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    Add Vehicle | PROPERTY DEALERS
+</title>
+
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<script>
+
+(function(){
+
+    if(
+        localStorage.getItem(
+            "pd_theme"
+        )
+        ===
+        "dark"
+    ){
+
+        document.documentElement
+            .classList
+            .add("dark");
+
+    }
+
+})();
+
+</script>
+
+
+<style>
+
+/* =========================================================
+   THEME
+========================================================= */
+
+:root{
+
+    --bg:#f5f3fb;
+    --surface:#ffffff;
+    --surface2:#faf9fd;
+
+    --text:#17131f;
+    --muted:#756e82;
+
+    --border:#e7e1ef;
+
+    --purple:#7c3aed;
+    --purple2:#9b63ff;
+
+    --purple-light:
+        rgba(124,58,237,.10);
+
+    --green:#16a34a;
+    --red:#ef4444;
+    --orange:#f59e0b;
+
+    --shadow:
+        0 18px 50px
+        rgba(67,45,105,.09);
+
+}
+
+html.dark{
+
+    --bg:#09080e;
+    --surface:#12101a;
+    --surface2:#17141f;
+
+    --text:#f8f5ff;
+    --muted:#aaa2b8;
+
+    --border:#2b2635;
+
+    --purple:#9b63ff;
+    --purple2:#b98aff;
+
+    --purple-light:
+        rgba(155,99,255,.13);
+
+    --green:#22c55e;
+    --red:#ff5c68;
+    --orange:#fbbf24;
+
+    --shadow:
+        0 25px 65px
+        rgba(0,0,0,.50);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(124,58,237,.10),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 95% 20%,
+            rgba(0,200,255,.06),
+            transparent 23%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+}
+
+
+button,
+input,
+select,
+textarea{
+
+    font-family:inherit;
+
+}
+
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    width:100%;
+
+    height:74px;
+
+    padding:
+        0 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:
+        var(--surface);
+
+    border-bottom:
+        1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+
+.logo{
+
+    color:
+        var(--text);
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:-.6px;
+
+}
+
+
+.logo span{
+
+    color:
+        var(--purple);
+
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+
+.nav-links a{
+
+    min-width:80px;
+
+    height:40px;
+
+    padding:
+        0 13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    color:
+        var(--muted);
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:
+        var(--purple);
+
+    background:
+        var(--purple-light);
+
+}
+
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+}
+
+
+.theme-btn{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    background:
+        var(--surface2);
+
+    color:
+        var(--text);
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+.dashboard-btn{
+
+    height:42px;
+
+    padding:
+        0 15px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:
+        var(--purple);
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
+
+    width:min(
+        1120px,
+        92%
+    );
+
+    margin:auto;
+
+    padding:
+        42px 0 80px;
+
+}
+
+
+.page-header{
+
+    margin-bottom:27px;
+
+}
+
+
+.eyebrow{
+
+    color:
+        var(--purple);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:9px;
+
+}
+
+
+.page-header h1{
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            48px
+        );
+
+    line-height:1;
+
+    letter-spacing:-1.9px;
+
+    margin-bottom:10px;
+
+}
+
+
+.page-header p{
+
+    color:
+        var(--muted);
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-message{
+
+    display:none;
+
+    margin-bottom:18px;
+
+    padding:
+        13px 15px;
+
+    border-radius:11px;
+
+    font-size:10px;
+
+    line-height:1.6;
+
+}
+
+
+.status-message.info{
+
+    display:block;
+
+    color:
+        var(--purple);
+
+    background:
+        var(--purple-light);
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.status-message.success{
+
+    display:block;
+
+    color:
+        var(--green);
+
+    background:
+        rgba(22,163,74,.08);
+
+    border:
+        1px solid rgba(22,163,74,.16);
+
+}
+
+
+.status-message.error{
+
+    display:block;
+
+    color:
+        var(--red);
+
+    background:
+        rgba(239,68,68,.08);
+
+    border:
+        1px solid rgba(239,68,68,.16);
+
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-card{
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:24px;
+
+    box-shadow:
+        var(--shadow);
+
+    overflow:hidden;
+
+}
+
+
+.form-section{
+
+    padding:27px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.form-section:last-child{
+
+    border-bottom:0;
+
+}
+
+
+.section-heading{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    margin-bottom:18px;
+
+}
+
+
+.section-number{
+
+    width:31px;
+    height:31px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:
+        var(--purple-light);
+
+    color:
+        var(--purple);
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+
+.section-title{
+
+    font-size:16px;
+
+    font-weight:800;
+
+}
+
+
+.grid-2{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:14px;
+
+}
+
+
+.grid-3{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap:14px;
+
+}
+
+
+.field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+
+}
+
+
+.field label{
+
+    color:
+        var(--muted);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+}
+
+
+.input,
+.select,
+.textarea{
+
+    width:100%;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    background:
+        var(--surface2);
+
+    color:
+        var(--text);
+
+    outline:none;
+
+    font-size:11px;
+
+    transition:.2s;
+
+}
+
+
+.input,
+.select{
+
+    height:45px;
+
+    padding:
+        0 12px;
+
+}
+
+
+.textarea{
+
+    min-height:130px;
+
+    padding:12px;
+
+    resize:vertical;
+
+}
+
+
+.input:focus,
+.select:focus,
+.textarea:focus{
+
+    border-color:
+        var(--purple);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(124,58,237,.08);
+
+}
+
+
+/* =========================================================
+   SELLER PROFILE
+========================================================= */
+
+.profile-summary{
+
+    padding:15px;
+
+    margin-bottom:15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-light),
+            var(--surface2)
+        );
+
+}
+
+
+.profile-summary-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+}
+
+
+.profile-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    min-width:0;
+
+}
+
+
+.profile-avatar{
+
+    width:43px;
+    height:43px;
+
+    flex:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    border-radius:50%;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--purple);
+
+    font-size:14px;
+
+    font-weight:800;
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.profile-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.profile-text{
+
+    min-width:0;
+
+}
+
+
+.profile-name{
+
+    font-size:11px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+.profile-email{
+
+    margin-top:3px;
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+.profile-edit{
+
+    height:34px;
+
+    padding:
+        0 10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:8px;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--purple);
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:14px;
+
+}
+
+
+.profile-input{
+
+    background:
+        var(--surface2);
+
+}
+
+
+.editable-phone{
+
+    background:
+        var(--surface2);
+
+    border-color:
+        rgba(124,58,237,.25);
+
+}
+
+
+.seller-note{
+
+    margin-top:1px;
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+    line-height:1.6;
+
+}
+
+
+.profile-contact-preview{
+
+    margin-top:14px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap:9px;
+
+}
+
+
+.contact-method{
+
+    min-height:65px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    background:
+        var(--surface2);
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    transition:.2s;
+
+    cursor:pointer;
+
+}
+
+
+.contact-method.enabled{
+
+    color:
+        var(--purple);
+
+    background:
+        var(--purple-light);
+
+    border-color:
+        var(--purple);
+
+}
+
+
+.contact-method-icon{
+
+    font-size:16px;
+
+}
+
+
+/* =========================================================
+   PHOTO GRID
+========================================================= */
+
+.photo-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap:13px;
+
+}
+
+
+.photo-slot{
+
+    position:relative;
+
+    min-height:185px;
+
+    border:
+        1.5px dashed
+        var(--border);
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--surface2),
+            var(--surface)
+        );
+
+    overflow:hidden;
+
+    transition:.2s;
+
+}
+
+
+.photo-slot:hover{
+
+    border-color:
+        var(--purple);
+
+}
+
+
+.photo-slot.main-slot{
+
+    grid-column:
+        1 / -1;
+
+    min-height:280px;
+
+    border-color:
+        rgba(124,58,237,.25);
+
+}
+
+
+.photo-input{
+
+    display:none;
+
+}
+
+
+.photo-placeholder{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:20px;
+
+    cursor:pointer;
+
+}
+
+
+.slot-number{
+
+    width:33px;
+    height:33px;
+
+    margin-bottom:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:
+        var(--purple-light);
+
+    color:
+        var(--purple);
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+
+.photo-placeholder strong{
+
+    font-size:11px;
+
+    margin-bottom:5px;
+
+}
+
+
+.photo-placeholder span{
+
+    max-width:240px;
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+    line-height:1.6;
+
+}
+
+
+.photo-placeholder small{
+
+    margin-top:9px;
+
+    color:
+        var(--purple);
+
+    font-size:7px;
+
+    font-weight:800;
+
+}
+
+
+.photo-preview{
+
+    position:absolute;
+
+    inset:0;
+
+    display:none;
+
+}
+
+
+.photo-preview img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.photo-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    padding:11px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:8px;
+
+    background:
+        linear-gradient(
+            transparent 45%,
+            rgba(0,0,0,.66)
+        );
+
+}
+
+
+.photo-overlay span{
+
+    color:#fff;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+.change-photo{
+
+    height:30px;
+
+    padding:
+        0 9px;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:#fff;
+
+    color:#17131f;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.main-label{
+
+    position:absolute;
+
+    top:10px;
+
+    left:10px;
+
+    z-index:3;
+
+    padding:
+        5px 7px;
+
+    border-radius:50px;
+
+    background:
+        var(--purple);
+
+    color:#fff;
+
+    font-size:7px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-box{
+
+    display:none;
+
+    margin-top:14px;
+
+}
+
+
+.progress-track{
+
+    width:100%;
+
+    height:7px;
+
+    overflow:hidden;
+
+    border-radius:50px;
+
+    background:
+        var(--border);
+
+}
+
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    transition:.2s;
+
+}
+
+
+.progress-text{
+
+    margin-top:6px;
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+}
+
+
+/* =========================================================
+   FOOTER ACTIONS
+========================================================= */
+
+.form-footer{
+
+    padding:
+        20px 27px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    background:
+        var(--surface2);
+
+}
+
+
+.form-footer-note{
+
+    color:
+        var(--muted);
+
+    font-size:8px;
+
+    line-height:1.6;
+
+}
+
+
+.form-actions{
+
+    display:flex;
+
+    gap:9px;
+
+}
+
+
+.btn{
+
+    height:46px;
+
+    padding:
+        0 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:11px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.btn-secondary{
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.btn-primary{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    color:#fff;
+
+    border:
+        1px solid var(--purple);
+
+}
+
+
+.btn-primary:disabled{
+
+    opacity:.55;
+
+    cursor:wait;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+
+    padding:
+        60px 20px;
+
+    text-align:center;
+
+    color:
+        var(--muted);
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .grid-2,
+    .grid-3,
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .profile-contact-preview{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .photo-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .photo-slot.main-slot{
+
+        grid-column:auto;
+
+        min-height:240px;
+
+    }
+
+
+    .form-footer{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+    .form-actions{
+
+        width:100%;
+
+    }
+
+
+    .form-actions .btn{
+
+        flex:1;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .navbar{
+
+        padding:
+            0 4%;
+
+    }
+
+
+    .dashboard-btn{
+
+        display:none;
+
+    }
+
+
+    .page{
+
+        width:94%;
+
+        padding-top:28px;
+
+    }
+
+
+    .form-section{
+
+        padding:20px;
+
+    }
+
+
+    .form-footer{
+
+        padding:
+            18px 20px;
+
+    }
+
+
+    .profile-summary-top{
+
+        align-items:flex-start;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+        PROPERTY<span>DEALERS</span>
+    </a>
+
+
+    <div class="nav-links">
+
+
+        <a href="index.html">
+            Home
+        </a>
+
+
+        <a href="search.html">
+            Vehicles
+        </a>
+
+
+        <a href="compare.html">
+            Compare
+        </a>
+
+
+        <a
+            href="dealer.html"
+            class="active"
+        >
+            Dealer
+        </a>
+
+
+    </div>
+
+
+    <div class="nav-actions">
+
+
+        <button
+            type="button"
+            id="themeBtn"
+            class="theme-btn"
+        >
+            ☾
+        </button>
+
+
+        <a
+            href="dealer.html"
+            class="dashboard-btn"
+        >
+            Dashboard
+        </a>
+
+
+    </div>
+
+
+</nav>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+    <header class="page-header">
+
+
+        <div class="eyebrow">
+            PROPERTY DEALERS / DEALER CENTRE
+        </div>
+
+
+        <h1 id="pageTitle">
+            Add a Vehicle
+        </h1>
+
+
+        <p id="pageDescription">
+            Create a professional vehicle listing for the marketplace.
+        </p>
+
+
+    </header>
+
+
+    <div
+        id="statusMessage"
+        class="status-message"
+    ></div>
+
+
+    <div
+        id="loading"
+        class="loading"
+    >
+        Loading your seller profile...
+    </div>
+
+
+    <!-- =====================================================
+         FORM
+    ====================================================== -->
+
+    <form
+        id="vehicleForm"
+        class="form-card"
+        style="display:none;"
+    >
+
+
+        <!-- =================================================
+             VEHICLE DETAILS
+        ================================================== -->
+
+        <section class="form-section">
+
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    01
+                </div>
+
+                <h2 class="section-title">
+                    Vehicle Details
+                </h2>
+
+            </div>
+
+
+            <div class="grid-2">
+
+
+                <div class="field">
+
+
+                    <label>
+                        MAKE *
+                    </label>
+
+
+                    <select
+                        id="make"
+                        class="select"
+                        required
+                    >
+
+
+                        <option value="">
+                            Select Make
+                        </option>
+
+
+                        <option>
+                            Toyota
+                        </option>
+
+                        <option>
+                            Honda
+                        </option>
+
+                        <option>
+                            Nissan
+                        </option>
+
+                        <option>
+                            Suzuki
+                        </option>
+
+                        <option>
+                            Mitsubishi
+                        </option>
+
+                        <option>
+                            Mazda
+                        </option>
+
+                        <option>
+                            Hyundai
+                        </option>
+
+                        <option>
+                            Kia
+                        </option>
+
+                        <option>
+                            BMW
+                        </option>
+
+                        <option>
+                            Mercedes-Benz
+                        </option>
+
+                        <option>
+                            Audi
+                        </option>
+
+                        <option>
+                            Volkswagen
+                        </option>
+
+                        <option>
+                            Ford
+                        </option>
+
+                        <option>
+                            Chevrolet
+                        </option>
+
+                        <option>
+                            Peugeot
+                        </option>
+
+                        <option>
+                            Renault
+                        </option>
+
+                        <option>
+                            Subaru
+                        </option>
+
+                        <option>
+                            Volvo
+                        </option>
+
+                        <option>
+                            Isuzu
+                        </option>
+
+                        <option>
+                            Perodua
+                        </option>
+
+                        <option>
+                            Proton
+                        </option>
+
+                        <option>
+                            Chery
+                        </option>
+
+                        <option>
+                            MG
+                        </option>
+
+                        <option>
+                            Geely
+                        </option>
+
+                        <option>
+                            Lexus
+                        </option>
+
+                        <option>
+                            Land Rover
+                        </option>
+
+                        <option>
+                            Jeep
+                        </option>
+
+                        <option>
+                            Infiniti
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        MODEL *
+                    </label>
+
+
+                    <input
+                        id="model"
+                        class="input"
+                        type="text"
+                        placeholder="e.g. Aqua"
+                        required
+                    >
+
+
+                </div>
+
+
+            </div>
+
+
+            <br>
+
+
+            <div class="grid-3">
+
+
+                <div class="field">
+
+
+                    <label>
+                        YEAR *
+                    </label>
+
+
+                    <select
+                        id="year"
+                        class="select"
+                        required
+                    >
+
+
+                        <option value="">
+                            Select Year
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        ASKING PRICE (LKR) *
+                    </label>
+
+
+                    <input
+                        id="price"
+                        class="input"
+                        type="number"
+                        min="1"
+                        placeholder="5250000"
+                        required
+                    >
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        MILEAGE (KM) *
+                    </label>
+
+
+                    <input
+                        id="mileage"
+                        class="input"
+                        type="number"
+                        min="0"
+                        placeholder="65000"
+                        required
+                    >
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             SPECIFICATIONS
+        ================================================== -->
+
+        <section class="form-section">
+
+
+            <div class="section-heading">
+
+
+                <div class="section-number">
+                    02
+                </div>
+
+
+                <h2 class="section-title">
+                    Specifications
+                </h2>
+
+
+            </div>
+
+
+            <div class="grid-3">
+
+
+                <div class="field">
+
+
+                    <label>
+                        FUEL TYPE *
+                    </label>
+
+
+                    <select
+                        id="fuel"
+                        class="select"
+                        required
+                    >
+
+                        <option value="">
+                            Select Fuel
+                        </option>
+
+                        <option>
+                            Petrol
+                        </option>
+
+                        <option>
+                            Diesel
+                        </option>
+
+                        <option>
+                            Hybrid
+                        </option>
+
+                        <option>
+                            Electric
+                        </option>
+
+                        <option>
+                            Plug-in Hybrid
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        TRANSMISSION *
+                    </label>
+
+
+                    <select
+                        id="transmission"
+                        class="select"
+                        required
+                    >
+
+                        <option value="">
+                            Select Transmission
+                        </option>
+
+                        <option>
+                            Automatic
+                        </option>
+
+                        <option>
+                            Manual
+                        </option>
+
+                        <option>
+                            CVT
+                        </option>
+
+                        <option>
+                            DCT
+                        </option>
+
+                        <option>
+                            AMT
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        ENGINE *
+                    </label>
+
+
+                    <input
+                        id="engine"
+                        class="input"
+                        type="text"
+                        placeholder="1496cc"
+                        required
+                    >
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        BODY TYPE *
+                    </label>
+
+
+                    <select
+                        id="body"
+                        class="select"
+                        required
+                    >
+
+                        <option value="">
+                            Select Body Type
+                        </option>
+
+                        <option>
+                            Sedan
+                        </option>
+
+                        <option>
+                            Hatchback
+                        </option>
+
+                        <option>
+                            SUV
+                        </option>
+
+                        <option>
+                            Wagon
+                        </option>
+
+                        <option>
+                            MPV
+                        </option>
+
+                        <option>
+                            Van
+                        </option>
+
+                        <option>
+                            Pickup
+                        </option>
+
+                        <option>
+                            Coupe
+                        </option>
+
+                        <option>
+                            Convertible
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        CONDITION *
+                    </label>
+
+
+                    <select
+                        id="condition"
+                        class="select"
+                        required
+                    >
+
+                        <option value="">
+                            Select Condition
+                        </option>
+
+                        <option>
+                            Brand New
+                        </option>
+
+                        <option>
+                            Used
+                        </option>
+
+                        <option>
+                            Reconditioned
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        DISTRICT *
+                    </label>
+
+
+                    <select
+                        id="location"
+                        class="select"
+                        required
+                    >
+
+                        <option value="">
+                            Select District
+                        </option>
+
+
+                        <!-- WESTERN -->
+
+                        <option>
+                            Colombo
+                        </option>
+
+                        <option>
+                            Gampaha
+                        </option>
+
+                        <option>
+                            Kalutara
+                        </option>
+
+
+                        <!-- CENTRAL -->
+
+                        <option>
+                            Kandy
+                        </option>
+
+                        <option>
+                            Matale
+                        </option>
+
+                        <option>
+                            Nuwara Eliya
+                        </option>
+
+
+                        <!-- SOUTHERN -->
+
+                        <option>
+                            Galle
+                        </option>
+
+                        <option>
+                            Matara
+                        </option>
+
+                        <option>
+                            Hambantota
+                        </option>
+
+
+                        <!-- NORTHERN -->
+
+                        <option>
+                            Jaffna
+                        </option>
+
+                        <option>
+                            Kilinochchi
+                        </option>
+
+                        <option>
+                            Mannar
+                        </option>
+
+                        <option>
+                            Vavuniya
+                        </option>
+
+                        <option>
+                            Mullaitivu
+                        </option>
+
+
+                        <!-- EASTERN -->
+
+                        <option>
+                            Batticaloa
+                        </option>
+
+                        <option>
+                            Ampara
+                        </option>
+
+                        <option>
+                            Trincomalee
+                        </option>
+
+
+                        <!-- NORTH WESTERN -->
+
+                        <option>
+                            Kurunegala
+                        </option>
+
+                        <option>
+                            Puttalam
+                        </option>
+
+
+                        <!-- NORTH CENTRAL -->
+
+                        <option>
+                            Anuradhapura
+                        </option>
+
+                        <option>
+                            Polonnaruwa
+                        </option>
+
+
+                        <!-- UVA -->
+
+                        <option>
+                            Badulla
+                        </option>
+
+                        <option>
+                            Monaragala
+                        </option>
+
+
+                        <!-- SABARAGAMUWA -->
+
+                        <option>
+                            Ratnapura
+                        </option>
+
+                        <option>
+                            Kegalle
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             HISTORY
+        ================================================== -->
+
+        <section class="form-section">
+
+
+            <div class="section-heading">
+
+
+                <div class="section-number">
+                    03
+                </div>
+
+
+                <h2 class="section-title">
+                    Vehicle History
+                </h2>
+
+
+            </div>
+
+
+            <div class="grid-2">
+
+
+                <div class="field">
+
+
+                    <label>
+                        ACCIDENT HISTORY
+                    </label>
+
+
+                    <select
+                        id="accidentHistory"
+                        class="select"
+                    >
+
+
+                        <option>
+                            No Known Accidents
+                        </option>
+
+
+                        <option>
+                            Minor Accident
+                        </option>
+
+
+                        <option>
+                            Major Accident
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        SERVICE HISTORY
+                    </label>
+
+
+                    <select
+                        id="serviceHistory"
+                        class="select"
+                    >
+
+
+                        <option>
+                            Full Service History
+                        </option>
+
+
+                        <option>
+                            Partial Service History
+                        </option>
+
+
+                        <option>
+                            No Service Records
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             SELLER CONTACT
+        ================================================== -->
+
+        <section class="form-section">
+
+
+            <div class="section-heading">
+
+
+                <div class="section-number">
+                    04
+                </div>
+
+
+                <h2 class="section-title">
+                    Seller Contact
+                </h2>
+
+
+            </div>
+
+
+            <div class="profile-summary">
+
+
+                <div class="profile-summary-top">
+
+
+                    <div class="profile-left">
+
+
+                        <div
+                            id="profileAvatar"
+                            class="profile-avatar"
+                        >
+                            D
+                        </div>
+
+
+                        <div class="profile-text">
+
+
+                            <div
+                                id="profileName"
+                                class="profile-name"
+                            >
+                                Dealer
+                            </div>
+
+
+                            <div
+                                id="profileEmail"
+                                class="profile-email"
+                            >
+                                —
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <a
+                        href="dealer.html"
+                        class="profile-edit"
+                    >
+                        Edit Profile
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="contact-grid">
+
+
+                <div class="field">
+
+
+                    <label>
+                        PHONE NUMBER
+                    </label>
+
+
+                    <input
+                        id="sellerPhone"
+                        class="
+                            input
+                            editable-phone
+                        "
+                        type="tel"
+                        inputmode="tel"
+                        maxlength="20"
+                        placeholder="0771234567"
+                    >
+
+
+                    <div class="seller-note">
+
+                        Enter the phone number buyers
+                        can use for this listing.
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label>
+                        EMAIL
+                    </label>
+
+
+                    <input
+                        id="sellerEmail"
+                        class="input profile-input"
+                        type="email"
+                        readonly
+                    >
+
+
+                    <div class="seller-note">
+
+                        Your account email is used
+                        for email enquiries.
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div
+                style="
+                    margin-top:17px;
+                "
+            >
+
+
+                <div
+                    style="
+                        color:var(--muted);
+                        font-size:9px;
+                        font-weight:800;
+                        letter-spacing:.5px;
+                        margin-bottom:9px;
+                    "
+                >
+                    CONTACT METHODS SHOWN TO BUYERS
+                </div>
+
+
+                <div class="profile-contact-preview">
+
+
+                    <div
+                        id="contactWhatsAppCard"
+                        class="contact-method"
+                        role="button"
+                        tabindex="0"
+                    >
+
+                        <div class="contact-method-icon">
+                            💬
+                        </div>
+
+                        WhatsApp
+
+                    </div>
+
+
+                    <div
+                        id="contactPhoneCard"
+                        class="contact-method"
+                        role="button"
+                        tabindex="0"
+                    >
+
+                        <div class="contact-method-icon">
+                            📞
+                        </div>
+
+                        Phone
+
+                    </div>
+
+
+                    <div
+                        id="contactEmailCard"
+                        class="contact-method"
+                        role="button"
+                        tabindex="0"
+                    >
+
+                        <div class="contact-method-icon">
+                            ✉
+                        </div>
+
+                        Email
+
+                    </div>
+
+
+                </div>
+
+
+                <div
+                    style="
+                        margin-top:9px;
+                        color:var(--muted);
+                        font-size:8px;
+                        line-height:1.6;
+                    "
+                >
+
+                    Click a method to turn it ON or OFF.
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             PHOTOS
+        ================================================== -->
+
+        <section class="form-section">
+
+
+            <div class="section-heading">
+
+
+                <div class="section-number">
+                    05
+                </div>
+
+
+                <h2 class="section-title">
+                    Vehicle Photos
+                </h2>
+
+
+            </div>
+
+
+            <div class="photo-grid">
+
+
+                <!-- PHOTO 1 -->
+
+                <div
+                    class="photo-slot main-slot"
+                    data-slot="1"
+                >
+
+                    <div class="main-label">
+                        MAIN PHOTO
+                    </div>
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo1"
+                    >
+
+                        <div class="slot-number">
+                            01
+                        </div>
+
+
+                        <strong>
+                            Add Main Vehicle Photo
+                        </strong>
+
+
+                        <span>
+                            Photo 1 is always the main image shown on the marketplace.
+                        </span>
+
+
+                        <small>
+                            JPG • PNG • WEBP
+                        </small>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo1"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div
+                        class="photo-preview"
+                    >
+
+
+                        <img
+                            alt="Photo 1"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 1 • MAIN
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 2 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="2"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo2"
+                    >
+
+
+                        <div class="slot-number">
+                            02
+                        </div>
+
+
+                        <strong>
+                            Add Photo 2
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo2"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 2"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 2
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 3 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="3"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo3"
+                    >
+
+
+                        <div class="slot-number">
+                            03
+                        </div>
+
+
+                        <strong>
+                            Add Photo 3
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo3"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 3"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 3
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 4 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="4"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo4"
+                    >
+
+
+                        <div class="slot-number">
+                            04
+                        </div>
+
+
+                        <strong>
+                            Add Photo 4
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo4"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 4"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 4
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 5 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="5"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo5"
+                    >
+
+
+                        <div class="slot-number">
+                            05
+                        </div>
+
+
+                        <strong>
+                            Add Photo 5
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo5"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 5"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 5
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 6 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="6"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo6"
+                    >
+
+
+                        <div class="slot-number">
+                            06
+                        </div>
+
+
+                        <strong>
+                            Add Photo 6
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo6"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 6"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 6
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 7 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="7"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo7"
+                    >
+
+
+                        <div class="slot-number">
+                            07
+                        </div>
+
+
+                        <strong>
+                            Add Photo 7
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo7"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 7"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 7
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 8 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="8"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo8"
+                    >
+
+
+                        <div class="slot-number">
+                            08
+                        </div>
+
+
+                        <strong>
+                            Add Photo 8
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo8"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 8"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 8
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 9 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="9"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo9"
+                    >
+
+
+                        <div class="slot-number">
+                            09
+                        </div>
+
+
+                        <strong>
+                            Add Photo 9
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo9"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 9"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 9
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PHOTO 10 -->
+
+                <div
+                    class="photo-slot"
+                    data-slot="10"
+                >
+
+
+                    <label
+                        class="photo-placeholder"
+                        for="photo10"
+                    >
+
+
+                        <div class="slot-number">
+                            10
+                        </div>
+
+
+                        <strong>
+                            Add Photo 10
+                        </strong>
+
+
+                        <span>
+                            Optional
+                        </span>
+
+
+                    </label>
+
+
+                    <input
+                        id="photo10"
+                        class="photo-input"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+
+                    <div class="photo-preview">
+
+
+                        <img
+                            alt="Photo 10"
+                        >
+
+
+                        <div class="photo-overlay">
+
+
+                            <span>
+                                PHOTO 10
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="change-photo"
+                            >
+                                Change
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div
+                id="progressBox"
+                class="progress-box"
+            >
+
+
+                <div
+                    class="progress-track"
+                >
+
+                    <div
+                        id="progressFill"
+                        class="progress-fill"
+                    ></div>
+
+
+                </div>
+
+
+                <div
+                    id="progressText"
+                    class="progress-text"
+                >
+                    Preparing upload...
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             DESCRIPTION
+        ================================================== -->
+
+        <section class="form-section">
+
+
+            <div class="section-heading">
+
+
+                <div class="section-number">
+                    06
+                </div>
+
+
+                <h2 class="section-title">
+                    Description
+                </h2>
+
+
+            </div>
+
+
+            <div class="field">
+
+
+                <label>
+                    VEHICLE DESCRIPTION
+                </label>
+
+
+                <textarea
+                    id="description"
+                    class="textarea"
+                    placeholder="Describe the vehicle condition, features, service history and other useful information..."
+                ></textarea>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div class="form-footer">
+
+
+            <div class="form-footer-note">
+
+                New listings are submitted as
+                <strong>Pending</strong>
+                and require admin approval.
+
+
+            </div>
+
+
+            <div class="form-actions">
+
+
+                <a
+                    href="dealer.html"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </a>
+
+
+                <button
+                    id="submitBtn"
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Publish Vehicle
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </form>
+
+
+</main>
+
+
+<footer
+    style="
+        padding:25px;
+        border-top:1px solid var(--border);
+        text-align:center;
+        color:var(--muted);
+        font-size:10px;
+    "
+>
+
+    © 2026 PROPERTY DEALERS — Dealer Centre
+
+</footer>
+
+
+<!-- =========================================================
+     THEME
+========================================================= -->
+
+<script>
+
+const themeBtn =
+    document.getElementById(
+        "themeBtn"
+    );
+
+
+function updateThemeButton(){
+
+    const dark =
+        document.documentElement
+            .classList
+            .contains("dark");
+
+
+    themeBtn.textContent =
+        dark
+            ? "☀"
+            : "☾";
+
+}
+
+
+updateThemeButton();
+
+
+themeBtn.addEventListener(
+    "click",
+    function(){
+
+        const dark =
+            document.documentElement
+                .classList
+                .contains("dark");
+
+
+        document.documentElement
+            .classList
+            .toggle(
+                "dark"
+            );
+
+
+        localStorage.setItem(
+            "pd_theme",
+            dark
+                ? "light"
+                : "dark"
+        );
+
+
+        updateThemeButton();
+
+    }
+);
+
+</script>
+
+
+<!-- =========================================================
+     FIREBASE + CLOUDINARY
+========================================================= -->
+
+<script type="module">
+
+import {
+
+    auth,
+    db,
+    onAuthStateChanged
+
+} from "./firebase.js";
+
+
+import {
+
+    collection,
+    addDoc,
+    doc,
+    getDoc,
+    updateDoc,
+    serverTimestamp,
+    setDoc
+
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+/* =========================================================
+   CLOUDINARY
+========================================================= */
+
+const CLOUDINARY_CLOUD_NAME =
+    "bljkxchi";
+
+
+const CLOUDINARY_UPLOAD_PRESET =
+    "property_dealers";
+
+
+const CLOUDINARY_UPLOAD_URL =
+    `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const form =
+    document.getElementById(
+        "vehicleForm"
+    );
+
+
+const loading =
+    document.getElementById(
+        "loading"
+    );
+
+
+const statusMessage =
+    document.getElementById(
+        "statusMessage"
+    );
+
+
+const submitBtn =
+    document.getElementById(
+        "submitBtn"
+    );
+
+
+const progressBox =
+    document.getElementById(
+        "progressBox"
+    );
+
+
+const progressFill =
+    document.getElementById(
+        "progressFill"
+    );
+
+
+const progressText =
+    document.getElementById(
+        "progressText"
+    );
+
+
+const profileAvatar =
+    document.getElementById(
+        "profileAvatar"
+    );
+
+
+const profileName =
+    document.getElementById(
+        "profileName"
+    );
+
+
+const profileEmail =
+    document.getElementById(
+        "profileEmail"
+    );
+
+
+const sellerPhoneInput =
+    document.getElementById(
+        "sellerPhone"
+    );
+
+
+const sellerEmailInput =
+    document.getElementById(
+        "sellerEmail"
+    );
+
+
+const contactWhatsAppCard =
+    document.getElementById(
+        "contactWhatsAppCard"
+    );
+
+
+const contactPhoneCard =
+    document.getElementById(
+        "contactPhoneCard"
+    );
+
+
+const contactEmailCard =
+    document.getElementById(
+        "contactEmailCard"
+    );
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentUser =
+    null;
+
+
+let sellerProfile =
+    null;
+
+
+let editVehicle =
+    null;
+
+
+const listingContactMethods = {
+
+    whatsapp:false,
+
+    phone:false,
+
+    email:false
+
+};
+
+
+const selectedFiles =
+    Array(10).fill(null);
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showMessage(
+    message,
+    type
+){
+
+    statusMessage.textContent =
+        message;
+
+
+    statusMessage.className =
+        "status-message "
+        +
+        type;
+
+}
+
+
+/* =========================================================
+   AUTH
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    async user => {
+
+        if(!user){
+
+            window.location.replace(
+                "login.html"
+            );
+
+            return;
+
+        }
+
+
+        currentUser =
+            user;
+
+
+        try{
+
+            await loadSellerProfile();
+
+            initialiseContactMethods();
+
+            await checkEditMode();
+
+
+            loading.style.display =
+                "none";
+
+
+            form.style.display =
+                "block";
+
+        }
+        catch(error){
+
+            console.error(
+                error
+            );
+
+
+            showMessage(
+                error.message
+                ||
+                "Could not load your seller profile.",
+                "error"
+            );
+
+
+            loading.textContent =
+                "Could not load seller profile.";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   YEAR OPTIONS
+========================================================= */
+
+const yearSelect =
+    document.getElementById(
+        "year"
+    );
+
+
+const currentYear =
+    new Date().getFullYear();
+
+
+for(
+    let year =
+        currentYear;
+    year >= 1990;
+    year--
+){
+
+    const option =
+        document.createElement(
+            "option"
+        );
+
+
+    option.value =
+        String(year);
+
+
+    option.textContent =
+        String(year);
+
+
+    yearSelect.appendChild(
+        option
+    );
+
+}
+
+
+/* =========================================================
+   LOAD SELLER PROFILE
+========================================================= */
+
+async function loadSellerProfile(){
+
+    const userRef =
+        doc(
+            db,
+            "users",
+            currentUser.uid
+        );
+
+
+    const snapshot =
+        await getDoc(
+            userRef
+        );
+
+
+    if(
+        snapshot.exists()
+    ){
+
+        sellerProfile =
+            snapshot.data();
+
+    }
+    else{
+
+        sellerProfile = {
+
+            uid:
+                currentUser.uid,
+
+            email:
+                currentUser.email
+                ||
+                "",
+
+            displayName:
+                currentUser.displayName
+                ||
+                "Dealer",
+
+            phoneNumber:
+                "",
+
+            contactMethods: {
+
+                whatsapp:false,
+
+                phone:false,
+
+                email:false
+
+            }
+
+        };
+
+
+        await setDoc(
+            userRef,
+            {
+
+                ...sellerProfile,
+
+                createdAt:
+                    serverTimestamp(),
+
+                updatedAt:
+                    serverTimestamp()
+
+            },
+            {
+                merge:true
+            }
+        );
+
+    }
+
+
+    sellerProfile.email =
+        currentUser.email
+        ||
+        sellerProfile.email
+        ||
+        "";
+
+
+    renderSellerProfile();
+
+}
+
+
+/* =========================================================
+   INITIAL CONTACT METHODS
+========================================================= */
+
+function initialiseContactMethods(){
+
+    const methods =
+        sellerProfile?.contactMethods
+        ||
+        {};
+
+
+    listingContactMethods.whatsapp =
+        Boolean(
+            methods.whatsapp
+        );
+
+
+    listingContactMethods.phone =
+        Boolean(
+            methods.phone
+        );
+
+
+    listingContactMethods.email =
+        Boolean(
+            methods.email
+        );
+
+
+    updateContactMethodUI();
+
+}
+
+
+/* =========================================================
+   PROFILE UI
+========================================================= */
+
+function renderSellerProfile(){
+
+    const name =
+        sellerProfile?.displayName
+        ||
+        currentUser.displayName
+        ||
+        "Dealer";
+
+
+    const email =
+        currentUser.email
+        ||
+        sellerProfile?.email
+        ||
+        "";
+
+
+    const phone =
+        sellerProfile?.phoneNumber
+        ||
+        "";
+
+
+    profileName.textContent =
+        name;
+
+
+    profileEmail.textContent =
+        email;
+
+
+    sellerPhoneInput.value =
+        phone;
+
+
+    sellerEmailInput.value =
+        email;
+
+
+    if(
+        currentUser.photoURL
+    ){
+
+        profileAvatar.innerHTML = `
+
+            <img
+                src="${escapeAttribute(
+                    currentUser.photoURL
+                )}"
+                alt="Seller profile"
+            >
+
+        `;
+
+    }
+    else{
+
+        profileAvatar.textContent =
+            name
+                .trim()
+                .charAt(0)
+                .toUpperCase()
+                ||
+                "D";
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTACT UI
+========================================================= */
+
+function updateContactMethodUI(){
+
+    contactWhatsAppCard.classList.toggle(
+        "enabled",
+        listingContactMethods.whatsapp
+    );
+
+
+    contactPhoneCard.classList.toggle(
+        "enabled",
+        listingContactMethods.phone
+    );
+
+
+    contactEmailCard.classList.toggle(
+        "enabled",
+        listingContactMethods.email
+    );
+
+}
+
+
+/* =========================================================
+   CONTACT TOGGLE
+========================================================= */
+
+function toggleContactMethod(
+    method
+){
+
+    listingContactMethods[method] =
+        !listingContactMethods[method];
+
+
+    updateContactMethodUI();
+
+}
+
+
+contactWhatsAppCard.addEventListener(
+    "click",
+    function(){
+
+        toggleContactMethod(
+            "whatsapp"
+        );
+
+    }
+);
+
+
+contactPhoneCard.addEventListener(
+    "click",
+    function(){
+
+        toggleContactMethod(
+            "phone"
+        );
+
+    }
+);
+
+
+contactEmailCard.addEventListener(
+    "click",
+    function(){
+
+        toggleContactMethod(
+            "email"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+[
+    [
+        contactWhatsAppCard,
+        "whatsapp"
+    ],
+
+    [
+        contactPhoneCard,
+        "phone"
+    ],
+
+    [
+        contactEmailCard,
+        "email"
+    ]
+
+]
+.forEach(
+    ([element,method]) => {
+
+        element.addEventListener(
+            "keydown",
+            function(event){
+
+                if(
+                    event.key ===
+                    "Enter"
+                    ||
+                    event.key ===
+                    " "
+                ){
+
+                    event.preventDefault();
+
+
+                    toggleContactMethod(
+                        method
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PHOTO INPUTS
+========================================================= */
+
+for(
+    let slot=1;
+    slot<=10;
+    slot++
+){
+
+    const input =
+        document.getElementById(
+            `photo${slot}`
+        );
+
+
+    const photoSlot =
+        document.querySelector(
+            `.photo-slot[data-slot="${slot}"]`
+        );
+
+
+    const placeholder =
+        photoSlot.querySelector(
+            ".photo-placeholder"
+        );
+
+
+    const preview =
+        photoSlot.querySelector(
+            ".photo-preview"
+        );
+
+
+    const previewImage =
+        preview.querySelector(
+            "img"
+        );
+
+
+    const changeButton =
+        preview.querySelector(
+            ".change-photo"
+        );
+
+
+    input.addEventListener(
+        "change",
+        function(){
+
+            const file =
+                input.files[0];
+
+
+            if(!file){
+
+                selectedFiles[
+                    slot - 1
+                ] =
+                    null;
+
+                return;
+
+            }
+
+
+            if(
+                !file.type.startsWith(
+                    "image/"
+                )
+            ){
+
+                showMessage(
+                    `Photo ${slot} must be an image.`,
+                    "error"
+                );
+
+
+                input.value =
+                    "";
+
+                return;
+
+            }
+
+
+            const maxSize =
+                10 *
+                1024 *
+                1024;
+
+
+            if(
+                file.size >
+                maxSize
+            ){
+
+                showMessage(
+                    `Photo ${slot} must be smaller than 10 MB.`,
+                    "error"
+                );
+
+
+                input.value =
+                    "";
+
+                return;
+
+            }
+
+
+            selectedFiles[
+                slot - 1
+            ] =
+                file;
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                event => {
+
+                    previewImage.src =
+                        event.target.result;
+
+
+                    placeholder.style.display =
+                        "none";
+
+
+                    preview.style.display =
+                        "block";
+
+                };
+
+
+            reader.readAsDataURL(
+                file
+            );
+
+
+            showMessage(
+                `Photo ${slot} selected.`,
+                "success"
+            );
+
+        }
+    );
+
+
+    changeButton.addEventListener(
+        "click",
+        function(event){
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            input.click();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   EDIT MODE
+========================================================= */
+
+async function checkEditMode(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const editId =
+        params.get(
+            "edit"
+        );
+
+
+    if(!editId){
+
+        return;
+
+    }
+
+
+    const vehicleRef =
+        doc(
+            db,
+            "vehicles",
+            editId
+        );
+
+
+    const snapshot =
+        await getDoc(
+            vehicleRef
+        );
+
+
+    if(
+        !snapshot.exists()
+    ){
+
+        throw new Error(
+            "Vehicle not found."
+        );
+
+    }
+
+
+    const data =
+        snapshot.data();
+
+
+    if(
+        data.ownerUid
+        !==
+        currentUser.uid
+    ){
+
+        throw new Error(
+            "You do not have permission to edit this vehicle."
+        );
+
+    }
+
+
+    editVehicle = {
+
+        id:
+            snapshot.id,
+
+        ...data
+
+    };
+
+
+    loadEditData(
+        editVehicle
+    );
+
+}
+
+
+/* =========================================================
+   LOAD EDIT DATA
+========================================================= */
+
+function loadEditData(
+    vehicle
+){
+
+    document.getElementById(
+        "pageTitle"
+    ).textContent =
+        "Edit Vehicle";
+
+
+    document.getElementById(
+        "pageDescription"
+    ).textContent =
+        "Update your vehicle information and save the changes.";
+
+
+    submitBtn.textContent =
+        "Save Changes";
+
+
+    const values = {
+
+        make:
+            vehicle.make,
+
+        model:
+            vehicle.model,
+
+        year:
+            vehicle.year,
+
+        price:
+            vehicle.price,
+
+        mileage:
+            vehicle.mileage,
+
+        fuel:
+            vehicle.fuel,
+
+        transmission:
+            vehicle.transmission,
+
+        engine:
+            vehicle.engine,
+
+        body:
+            vehicle.body,
+
+        condition:
+            vehicle.condition,
+
+        location:
+            vehicle.location,
+
+        accidentHistory:
+            vehicle.accidentHistory,
+
+        serviceHistory:
+            vehicle.serviceHistory,
+
+        description:
+            vehicle.description
+
+    };
+
+
+    Object.entries(
+        values
+    )
+    .forEach(
+        ([id,value]) => {
+
+            const element =
+                document.getElementById(
+                    id
+                );
+
+
+            if(element){
+
+                element.value =
+                    value
+                    ??
+                    "";
+
+            }
+
+        }
+    );
+
+
+    sellerPhoneInput.value =
+        vehicle.sellerPhone
+        ||
+        sellerProfile.phoneNumber
+        ||
+        "";
+
+
+    const methods =
+        vehicle.contactMethods
+        ||
+        {};
+
+
+    listingContactMethods.whatsapp =
+        Boolean(
+            methods.whatsapp
+        );
+
+
+    listingContactMethods.phone =
+        Boolean(
+            methods.phone
+        );
+
+
+    listingContactMethods.email =
+        Boolean(
+            methods.email
+        );
+
+
+    updateContactMethodUI();
+
+
+    const existingPhotos =
+        Array.isArray(
+            vehicle.photoUrls
+        )
+        ?
+        vehicle.photoUrls
+        :
+        [];
+
+
+    existingPhotos
+        .slice(
+            0,
+            10
+        )
+        .forEach(
+            (url,index) => {
+
+                showExistingPhoto(
+                    index + 1,
+                    url
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   EXISTING PHOTO
+========================================================= */
+
+function showExistingPhoto(
+    slot,
+    url
+){
+
+    if(!url){
+
+        return;
+
+    }
+
+
+    const photoSlot =
+        document.querySelector(
+            `.photo-slot[data-slot="${slot}"]`
+        );
+
+
+    if(!photoSlot){
+
+        return;
+
+    }
+
+
+    const placeholder =
+        photoSlot.querySelector(
+            ".photo-placeholder"
+        );
+
+
+    const preview =
+        photoSlot.querySelector(
+            ".photo-preview"
+        );
+
+
+    const image =
+        preview.querySelector(
+            "img"
+        );
+
+
+    image.src =
+        url;
+
+
+    placeholder.style.display =
+        "none";
+
+
+    preview.style.display =
+        "block";
+
+}
+
+
+/* =========================================================
+   READ FORM
+========================================================= */
+
+function readVehicleForm(){
+
+    const make =
+        document.getElementById(
+            "make"
+        ).value.trim();
+
+
+    const model =
+        document.getElementById(
+            "model"
+        ).value.trim();
+
+
+    const year =
+        Number(
+            document.getElementById(
+                "year"
+            ).value
+        );
+
+
+    const price =
+        Number(
+            document.getElementById(
+                "price"
+            ).value
+        );
+
+
+    const mileage =
+        Number(
+            document.getElementById(
+                "mileage"
+            ).value
+        );
+
+
+    const fuel =
+        document.getElementById(
+            "fuel"
+        ).value;
+
+
+    const transmission =
+        document.getElementById(
+            "transmission"
+        ).value;
+
+
+    const engine =
+        document.getElementById(
+            "engine"
+        ).value.trim();
+
+
+    const body =
+        document.getElementById(
+            "body"
+        ).value;
+
+
+    const condition =
+        document.getElementById(
+            "condition"
+        ).value;
+
+
+    const location =
+        document.getElementById(
+            "location"
+        ).value;
+
+
+    const accidentHistory =
+        document.getElementById(
+            "accidentHistory"
+        ).value;
+
+
+    const serviceHistory =
+        document.getElementById(
+            "serviceHistory"
+        ).value;
+
+
+    const description =
+        document.getElementById(
+            "description"
+        ).value.trim();
+
+
+    const sellerPhone =
+        sellerPhoneInput.value.trim();
+
+
+    if(
+        !make
+        ||
+        !model
+        ||
+        !year
+        ||
+        !price
+        ||
+        mileage < 0
+        ||
+        !fuel
+        ||
+        !transmission
+        ||
+        !engine
+        ||
+        !body
+        ||
+        !condition
+        ||
+        !location
+    ){
+
+        throw new Error(
+            "Please complete all required vehicle fields."
+        );
+
+    }
+
+
+    if(
+        !editVehicle
+        &&
+        !selectedFiles[0]
+    ){
+
+        throw new Error(
+            "Please add Photo 1. Photo 1 is the main vehicle photo."
+        );
+
+    }
+
+
+    if(
+        (
+            listingContactMethods.whatsapp
+            ||
+            listingContactMethods.phone
+        )
+        &&
+        !sellerPhone
+    ){
+
+        throw new Error(
+            "Please enter a phone number because WhatsApp or Phone contact is enabled."
+        );
+
+    }
+
+
+    return {
+
+        make,
+
+        model,
+
+        title:
+            `${make} ${model}`,
+
+        year,
+
+        price,
+
+        mileage,
+
+        fuel,
+
+        transmission,
+
+        engine,
+
+        body,
+
+        condition,
+
+        location,
+
+        accidentHistory,
+
+        serviceHistory,
+
+        description,
+
+        sellerPhone,
+
+        contactMethods: {
+
+            whatsapp:
+                listingContactMethods.whatsapp,
+
+            phone:
+                listingContactMethods.phone,
+
+            email:
+                listingContactMethods.email
+
+        }
+
+    };
+
+}
+
+
+/* =========================================================
+   CLOUDINARY
+========================================================= */
+
+async function uploadToCloudinary(
+    file
+){
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "file",
+        file
+    );
+
+
+    formData.append(
+        "upload_preset",
+        CLOUDINARY_UPLOAD_PRESET
+    );
+
+
+    const response =
+        await fetch(
+            CLOUDINARY_UPLOAD_URL,
+            {
+
+                method:
+                    "POST",
+
+                body:
+                    formData
+
+            }
+        );
+
+
+    const data =
+        await response.json();
+
+
+    if(
+        !response.ok
+        ||
+        !data.secure_url
+    ){
+
+        throw new Error(
+            data.error?.message
+            ||
+            "Cloudinary photo upload failed."
+        );
+
+    }
+
+
+    return data.secure_url;
+
+}
+
+
+/* =========================================================
+   UPLOAD PHOTOS
+========================================================= */
+
+async function uploadPhotos(){
+
+    const files =
+        selectedFiles.filter(
+            Boolean
+        );
+
+
+    if(
+        files.length ===
+        0
+    ){
+
+        return [];
+
+    }
+
+
+    const uploaded =
+        [];
+
+
+    progressBox.style.display =
+        "block";
+
+
+    let completed =
+        0;
+
+
+    for(
+        let slot=0;
+        slot<10;
+        slot++
+    ){
+
+        const file =
+            selectedFiles[slot];
+
+
+        if(!file){
+
+            continue;
+
+        }
+
+
+        progressText.textContent =
+            `Uploading Photo ${slot + 1}...`;
+
+
+        const url =
+            await uploadToCloudinary(
+                file
+            );
+
+
+        uploaded.push({
+
+            slot:
+                slot + 1,
+
+            url
+
+        });
+
+
+        completed++;
+
+
+        const percent =
+            Math.round(
+                (
+                    completed
+                    /
+                    files.length
+                )
+                *
+                100
+            );
+
+
+        progressFill.style.width =
+            `${percent}%`;
+
+    }
+
+
+    progressText.textContent =
+        "Photos uploaded successfully.";
+
+
+    return uploaded;
+
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+form.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        try{
+
+            const vehicleData =
+                readVehicleForm();
+
+
+            submitBtn.disabled =
+                true;
+
+
+            submitBtn.textContent =
+                editVehicle
+                    ? "Saving..."
+                    : "Publishing...";
+
+
+            showMessage(
+                editVehicle
+                    ? "Saving vehicle..."
+                    : "Creating vehicle...",
+                "info"
+            );
+
+
+            /* =================================================
+               CREATE
+            ================================================== */
+
+            if(
+                !editVehicle
+            ){
+
+                const newVehicle = {
+
+                    ...vehicleData,
+
+                    status:
+                        "pending",
+
+                    ownerUid:
+                        currentUser.uid,
+
+                    ownerEmail:
+                        currentUser.email
+                        ||
+                        "",
+
+                    seller:
+                        sellerProfile.displayName
+                        ||
+                        currentUser.displayName
+                        ||
+                        "Dealer",
+
+                    image:
+                        "",
+
+                    photoUrls:
+                        [],
+
+                    photoCount:
+                        0,
+
+                    createdAt:
+                        serverTimestamp(),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                };
+
+
+                const vehicleRef =
+                    await addDoc(
+                        collection(
+                            db,
+                            "vehicles"
+                        ),
+                        newVehicle
+                    );
+
+
+                showMessage(
+                    "Vehicle created. Uploading photos...",
+                    "info"
+                );
+
+
+                const uploaded =
+                    await uploadPhotos();
+
+
+                /*
+                   Preserve exact slot order.
+                   Photo 1 = photoUrls[0]
+                */
+
+                const photoUrls =
+                    Array(10).fill("");
+
+
+                uploaded.forEach(
+                    item => {
+
+                        photoUrls[
+                            item.slot - 1
+                        ] =
+                            item.url;
+
+                    }
+                );
+
+
+                const finalPhotos =
+                    photoUrls.filter(
+                        Boolean
+                    );
+
+
+                await updateDoc(
+                    vehicleRef,
+                    {
+
+                        image:
+                            finalPhotos[0]
+                            ||
+                            "",
+
+                        photoUrls:
+                            finalPhotos,
+
+                        photoCount:
+                            finalPhotos.length,
+
+                        updatedAt:
+                            serverTimestamp()
+
+                    }
+                );
+
+
+                showMessage(
+                    "Vehicle submitted successfully. It is waiting for admin approval.",
+                    "success"
+                );
+
+
+                submitBtn.textContent =
+                    "Submitted";
+
+
+                setTimeout(
+                    function(){
+
+                        window.location.href =
+                            "dealer-vehicles.html";
+
+                    },
+                    1000
+                );
+
+
+                return;
+
+            }
+
+
+            /* =================================================
+               EDIT
+            ================================================== */
+
+            const vehicleRef =
+                doc(
+                    db,
+                    "vehicles",
+                    editVehicle.id
+                );
+
+
+            let photoUrls =
+                Array.isArray(
+                    editVehicle.photoUrls
+                )
+                ?
+                [
+                    ...editVehicle.photoUrls
+                ]
+                :
+                [];
+
+
+            const uploaded =
+                await uploadPhotos();
+
+
+            uploaded.forEach(
+                item => {
+
+                    photoUrls[
+                        item.slot - 1
+                    ] =
+                        item.url;
+
+                }
+            );
+
+
+            photoUrls =
+                photoUrls
+                    .filter(
+                        Boolean
+                    )
+                    .slice(
+                        0,
+                        10
+                    );
+
+
+            await updateDoc(
+                vehicleRef,
+                {
+
+                    ...vehicleData,
+
+                    ownerEmail:
+                        currentUser.email
+                        ||
+                        "",
+
+                    seller:
+                        sellerProfile.displayName
+                        ||
+                        currentUser.displayName
+                        ||
+                        "Dealer",
+
+                    sellerPhone:
+                        vehicleData.sellerPhone,
+
+                    contactMethods:
+                        vehicleData.contactMethods,
+
+                    image:
+                        photoUrls[0]
+                        ||
+                        "",
+
+                    photoUrls,
+
+                    photoCount:
+                        photoUrls.length,
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            showMessage(
+                "Vehicle updated successfully.",
+                "success"
+            );
+
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "dealer-vehicles.html";
+
+                },
+                900
+            );
+
+        }
+        catch(error){
+
+            console.error(
+                "Vehicle save error:",
+                error
+            );
+
+
+            showMessage(
+                error.message
+                ||
+                "Could not save vehicle.",
+                "error"
+            );
+
+
+            submitBtn.disabled =
+                false;
+
+
+            submitBtn.textContent =
+                editVehicle
+                    ? "Save Changes"
+                    : "Publish Vehicle";
+
+        }
+
+    });
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeAttribute(
+    value
+){
+
+    return String(
+        value
+        ??
+        ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```

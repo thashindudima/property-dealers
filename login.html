@@ -1,0 +1,1769 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sign In | PROPERTY DEALERS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<script>
+(function(){
+
+    const theme =
+        localStorage.getItem("pd_theme") ||
+        "dark";
+
+    if(theme === "dark"){
+
+        document.documentElement
+            .classList
+            .add("dark");
+
+    }
+
+})();
+</script>
+
+<style>
+
+/* =========================================================
+   THEME
+========================================================= */
+
+:root{
+
+    --bg:#f5f3fb;
+    --surface:#ffffff;
+    --surface2:#faf9fd;
+
+    --text:#17131f;
+    --muted:#756e82;
+
+    --border:#e7e1ef;
+
+    --purple:#7c3aed;
+    --purple2:#9b63ff;
+
+    --purple-light:
+        rgba(124,58,237,.10);
+
+    --green:#16a34a;
+    --red:#ef4444;
+
+    --shadow:
+        0 25px 70px
+        rgba(67,45,105,.12);
+
+}
+
+html.dark{
+
+    --bg:#09080e;
+    --surface:#12101a;
+    --surface2:#17141f;
+
+    --text:#f8f5ff;
+    --muted:#aaa2b8;
+
+    --border:#2b2635;
+
+    --purple:#9b63ff;
+    --purple2:#b98aff;
+
+    --purple-light:
+        rgba(155,99,255,.13);
+
+    --green:#22c55e;
+    --red:#ff5c68;
+
+    --shadow:
+        0 25px 70px
+        rgba(0,0,0,.50);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    min-height:100%;
+
+}
+
+body{
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(124,58,237,.12),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(155,99,255,.10),
+            transparent 28%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+a{
+
+    color:inherit;
+    text-decoration:none;
+
+}
+
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
+
+.theme-btn{
+
+    position:fixed;
+
+    top:18px;
+    right:18px;
+
+    z-index:100;
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.08);
+
+    transition:.2s;
+
+}
+
+.theme-btn:hover{
+
+    border-color:var(--purple);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
+
+    width:min(
+        1080px,
+        92%
+    );
+
+    margin:auto;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:45px 0;
+
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.login-layout{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        420px;
+
+    gap:22px;
+
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.brand-panel{
+
+    min-height:620px;
+
+    padding:45px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            var(--surface),
+            var(--surface2)
+        );
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.brand-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    border-radius:50%;
+
+    background:
+        rgba(124,58,237,.08);
+
+    right:-120px;
+    top:-120px;
+
+}
+
+.brand-panel::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    background:
+        rgba(155,99,255,.06);
+
+    left:-100px;
+    bottom:-100px;
+
+}
+
+.logo{
+
+    position:relative;
+
+    z-index:1;
+
+    font-size:23px;
+
+    font-weight:800;
+
+    letter-spacing:-.7px;
+
+}
+
+.logo span{
+
+    color:var(--purple);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-copy{
+
+    position:relative;
+
+    z-index:1;
+
+}
+
+.eyebrow{
+
+    color:var(--purple);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:14px;
+
+}
+
+.hero-copy h1{
+
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            62px
+        );
+
+    line-height:.96;
+
+    letter-spacing:-3px;
+
+    max-width:650px;
+
+    margin-bottom:18px;
+
+}
+
+.hero-copy p{
+
+    max-width:520px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.85;
+
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features{
+
+    margin-top:34px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap:10px;
+
+}
+
+.feature{
+
+    padding:15px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:14px;
+
+}
+
+.feature-icon{
+
+    font-size:19px;
+
+    margin-bottom:9px;
+
+}
+
+.feature strong{
+
+    display:block;
+
+    font-size:11px;
+
+    margin-bottom:4px;
+
+}
+
+.feature span{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-card{
+
+    min-height:620px;
+
+    padding:34px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:28px;
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow);
+
+}
+
+.login-top{
+
+    margin-bottom:27px;
+
+}
+
+.login-top .eyebrow{
+
+    margin-bottom:10px;
+
+}
+
+.login-top h2{
+
+    font-size:30px;
+
+    line-height:1.1;
+
+    letter-spacing:-1px;
+
+    margin-bottom:8px;
+
+}
+
+.login-top p{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================================
+   GOOGLE
+========================================================= */
+
+.google-btn{
+
+    width:100%;
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    background:var(--surface2);
+
+    color:var(--text);
+
+    font-family:inherit;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.google-btn:hover{
+
+    border-color:var(--purple);
+
+    transform:
+        translateY(-1px);
+
+}
+
+.google-btn:disabled{
+
+    opacity:.65;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+.google-icon{
+
+    width:22px;
+    height:22px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    font-family:Arial,sans-serif;
+
+}
+
+
+/* =========================================================
+   USER PREVIEW
+========================================================= */
+
+.user-preview{
+
+    display:none;
+
+    margin-top:14px;
+
+    padding:12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:var(--surface2);
+
+}
+
+.user-preview.show{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.user-avatar{
+
+    width:40px;
+    height:40px;
+
+    flex:none;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:var(--purple-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--purple);
+
+    font-size:13px;
+
+    font-weight:800;
+
+}
+
+.user-avatar img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.user-info{
+
+    min-width:0;
+
+}
+
+.user-name{
+
+    font-size:10px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.user-email{
+
+    margin-top:3px;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-box{
+
+    min-height:0;
+
+    margin-top:13px;
+
+    border-radius:10px;
+
+    font-size:10px;
+
+    line-height:1.6;
+
+    text-align:center;
+
+}
+
+.status-box:not(:empty){
+
+    padding:
+        10px
+        12px;
+
+}
+
+.status-box.error{
+
+    color:var(--red);
+
+    background:
+        rgba(239,68,68,.08);
+
+    border:
+        1px solid
+        rgba(239,68,68,.15);
+
+}
+
+.status-box.success{
+
+    color:var(--green);
+
+    background:
+        rgba(22,163,74,.08);
+
+    border:
+        1px solid
+        rgba(22,163,74,.15);
+
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:
+        22px 0;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+.divider::before,
+.divider::after{
+
+    content:"";
+
+    height:1px;
+
+    flex:1;
+
+    background:var(--border);
+
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.info-box{
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:var(--purple-light);
+
+    border:
+        1px solid var(--border);
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.7;
+
+}
+
+.info-box strong{
+
+    color:var(--text);
+
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.back-link{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-top:20px;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+}
+
+.back-link:hover{
+
+    color:var(--purple);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    .login-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .brand-panel{
+
+        min-height:420px;
+
+    }
+
+    .login-card{
+
+        min-height:auto;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .page{
+
+        width:94%;
+
+        padding:30px 0;
+
+    }
+
+    .brand-panel{
+
+        padding:28px;
+
+        min-height:370px;
+
+    }
+
+    .login-card{
+
+        padding:24px;
+
+    }
+
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .hero-copy h1{
+
+        font-size:42px;
+
+        letter-spacing:-2px;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     THEME
+========================================================= -->
+
+<button
+    type="button"
+    id="themeBtn"
+    class="theme-btn"
+    title="Change Theme"
+>
+    ☾
+</button>
+
+
+<main class="page">
+
+
+    <div class="login-layout">
+
+
+        <!-- =================================================
+             LEFT
+        ================================================== -->
+
+        <section class="brand-panel">
+
+
+            <div class="logo">
+
+                PROPERTY<span>DEALERS</span>
+
+            </div>
+
+
+            <div class="hero-copy">
+
+
+                <div class="eyebrow">
+                    BUY • SELL • COMPARE
+                </div>
+
+
+                <h1>
+                    One account.
+                    Your vehicle marketplace.
+                </h1>
+
+
+                <p>
+                    Sign in with your Google account to
+                    search vehicles, compare listings,
+                    save your account and sell vehicles
+                    from one place.
+                </p>
+
+
+                <div class="features">
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            🔎
+                        </div>
+
+                        <strong>
+                            Find Vehicles
+                        </strong>
+
+                        <span>
+                            Search marketplace listings
+                            without creating another account.
+                        </span>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            ⚖️
+                        </div>
+
+                        <strong>
+                            Compare
+                        </strong>
+
+                        <span>
+                            Compare vehicles side by side
+                            before making a decision.
+                        </span>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            🚗
+                        </div>
+
+                        <strong>
+                            Sell
+                        </strong>
+
+                        <span>
+                            Add vehicles and manage your
+                            own listings from your dashboard.
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             RIGHT
+        ================================================== -->
+
+        <section class="login-card">
+
+
+            <div class="login-top">
+
+
+                <div class="eyebrow">
+                    ACCOUNT ACCESS
+                </div>
+
+
+                <h2>
+                    Welcome back.
+                </h2>
+
+
+                <p>
+                    Continue with Google to access
+                    PROPERTY DEALERS.
+                </p>
+
+
+            </div>
+
+
+            <!-- GOOGLE -->
+
+            <button
+                type="button"
+                id="googleBtn"
+                class="google-btn"
+            >
+
+                <span class="google-icon">
+                    G
+                </span>
+
+
+                <span id="googleText">
+                    Continue with Google
+                </span>
+
+            </button>
+
+
+            <!-- USER PREVIEW -->
+
+            <div
+                id="userPreview"
+                class="user-preview"
+            >
+
+                <div
+                    id="userAvatar"
+                    class="user-avatar"
+                >
+                    D
+                </div>
+
+
+                <div class="user-info">
+
+                    <div
+                        id="userName"
+                        class="user-name"
+                    >
+                        Dealer
+                    </div>
+
+
+                    <div
+                        id="userEmail"
+                        class="user-email"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                id="statusBox"
+                class="status-box"
+            ></div>
+
+
+            <div class="divider">
+                SECURE FIREBASE ACCESS
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    One account for everything
+                </strong>
+
+                <br>
+
+                Your Google account is linked to
+                your PROPERTY DEALERS profile.
+                Your display name, email and profile
+                photo can be used across the dealer
+                and marketplace pages.
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="back-link"
+            >
+                ← Back to Marketplace
+            </a>
+
+
+        </section>
+
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================================================
+     THEME SCRIPT
+========================================================= -->
+
+<script>
+
+(function(){
+
+    const button =
+        document.getElementById(
+            "themeBtn"
+        );
+
+
+    function updateThemeButton(){
+
+        const dark =
+            document.documentElement
+                .classList
+                .contains("dark");
+
+
+        button.textContent =
+            dark
+                ? "☀"
+                : "☾";
+
+    }
+
+
+    updateThemeButton();
+
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            const dark =
+                document.documentElement
+                    .classList
+                    .contains("dark");
+
+
+            document.documentElement
+                .classList
+                .toggle(
+                    "dark"
+                );
+
+
+            localStorage.setItem(
+                "pd_theme",
+                dark
+                    ? "light"
+                    : "dark"
+            );
+
+
+            updateThemeButton();
+
+        }
+    );
+
+})();
+
+</script>
+
+
+<!-- =========================================================
+     FIREBASE LOGIN + PROFILE
+========================================================= -->
+
+<script type="module">
+
+import {
+
+    auth,
+    db,
+    googleProvider,
+    signInWithPopup
+
+} from "./firebase.js";
+
+
+import {
+
+    doc,
+    getDoc,
+    setDoc,
+    serverTimestamp
+
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const googleBtn =
+    document.getElementById(
+        "googleBtn"
+    );
+
+
+const googleText =
+    document.getElementById(
+        "googleText"
+    );
+
+
+const statusBox =
+    document.getElementById(
+        "statusBox"
+    );
+
+
+const userPreview =
+    document.getElementById(
+        "userPreview"
+    );
+
+
+const userAvatar =
+    document.getElementById(
+        "userAvatar"
+    );
+
+
+const userName =
+    document.getElementById(
+        "userName"
+    );
+
+
+const userEmail =
+    document.getElementById(
+        "userEmail"
+    );
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+function showStatus(
+    message,
+    type = ""
+){
+
+    statusBox.textContent =
+        message;
+
+
+    statusBox.className =
+        "status-box";
+
+
+    if(type){
+
+        statusBox.classList.add(
+            type
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   USER PREVIEW
+========================================================= */
+
+function showUserPreview(
+    user
+){
+
+    const name =
+        user.displayName
+        ||
+        "Dealer";
+
+
+    const email =
+        user.email
+        ||
+        "";
+
+
+    userName.textContent =
+        name;
+
+
+    userEmail.textContent =
+        email;
+
+
+    if(user.photoURL){
+
+        userAvatar.innerHTML = `
+
+            <img
+                src="${escapeAttribute(
+                    user.photoURL
+                )}"
+                alt="Profile"
+            >
+
+        `;
+
+    }
+    else{
+
+        userAvatar.textContent =
+            name
+                .trim()
+                .charAt(0)
+                .toUpperCase()
+                ||
+                "D";
+
+    }
+
+
+    userPreview.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   FIRESTORE PROFILE
+========================================================= */
+
+async function createOrUpdateUserProfile(
+    user
+){
+
+    const userRef =
+        doc(
+            db,
+            "users",
+            user.uid
+        );
+
+
+    const snapshot =
+        await getDoc(
+            userRef
+        );
+
+
+    if(snapshot.exists()){
+
+        const oldData =
+            snapshot.data();
+
+
+        await setDoc(
+            userRef,
+            {
+
+                uid:
+                    user.uid,
+
+                email:
+                    user.email
+                    ||
+                    oldData.email
+                    ||
+                    "",
+
+                displayName:
+                    user.displayName
+                    ||
+                    oldData.displayName
+                    ||
+                    "Dealer",
+
+                photoURL:
+                    user.photoURL
+                    ||
+                    oldData.photoURL
+                    ||
+                    "",
+
+                updatedAt:
+                    serverTimestamp()
+
+            },
+            {
+                merge:true
+            }
+        );
+
+
+        return;
+
+    }
+
+
+    await setDoc(
+        userRef,
+        {
+
+            uid:
+                user.uid,
+
+            email:
+                user.email
+                ||
+                "",
+
+            displayName:
+                user.displayName
+                ||
+                "Dealer",
+
+            photoURL:
+                user.photoURL
+                ||
+                "",
+
+            phoneNumber:
+                "",
+
+            contactMethods: {
+
+                whatsapp:false,
+
+                phone:false,
+
+                email:false
+
+            },
+
+            createdAt:
+                serverTimestamp(),
+
+            updatedAt:
+                serverTimestamp()
+
+        },
+        {
+            merge:true
+        }
+    );
+
+}
+
+
+/* =========================================================
+   GOOGLE LOGIN
+========================================================= */
+
+googleBtn.addEventListener(
+    "click",
+    async function(){
+
+        showStatus(
+            ""
+        );
+
+
+        userPreview.classList.remove(
+            "show"
+        );
+
+
+        googleBtn.disabled =
+            true;
+
+
+        googleText.textContent =
+            "Opening Google...";
+
+
+        try{
+
+            const result =
+                await signInWithPopup(
+                    auth,
+                    googleProvider
+                );
+
+
+            const user =
+                result.user;
+
+
+            showUserPreview(
+                user
+            );
+
+
+            googleText.textContent =
+                "Signed In";
+
+
+            showStatus(
+                "Login successful. Setting up your account...",
+                "success"
+            );
+
+
+            await createOrUpdateUserProfile(
+                user
+            );
+
+
+            showStatus(
+                "Account ready. Opening dashboard...",
+                "success"
+            );
+
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "dealer.html";
+
+                },
+                700
+            );
+
+        }
+        catch(error){
+
+            console.error(
+                "Google login error:",
+                error
+            );
+
+
+            let message =
+                "Google sign-in failed.";
+
+
+            switch(
+                error.code
+            ){
+
+                case "auth/popup-blocked":
+
+                    message =
+                        "Google popup was blocked. Please allow popups for this website.";
+
+                    break;
+
+
+                case "auth/popup-closed-by-user":
+
+                    message =
+                        "Google sign-in window was closed.";
+
+                    break;
+
+
+                case "auth/unauthorized-domain":
+
+                    message =
+                        "This website domain is not authorized in Firebase Authentication.";
+
+                    break;
+
+
+                case "auth/operation-not-allowed":
+
+                    message =
+                        "Google Sign-In is not enabled in Firebase Authentication.";
+
+                    break;
+
+
+                case "auth/cancelled-popup-request":
+
+                    message =
+                        "Another Google sign-in request is already open.";
+
+                    break;
+
+
+                case "auth/network-request-failed":
+
+                    message =
+                        "Network error. Check your internet connection.";
+
+                    break;
+
+
+                case "permission-denied":
+
+                    message =
+                        "Firestore permission denied. Check your Firestore Security Rules.";
+
+                    break;
+
+
+                default:
+
+                    message =
+                        error.message
+                        ||
+                        message;
+
+            }
+
+
+            showStatus(
+                message,
+                "error"
+            );
+
+
+            googleText.textContent =
+                "Continue with Google";
+
+
+            googleBtn.disabled =
+                false;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeAttribute(
+    value
+){
+
+    return String(
+        value
+        ??
+        ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
+```
